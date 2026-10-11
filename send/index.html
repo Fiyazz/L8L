@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Send your message | L8L</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F5F4FB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15133A" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="icon" href="../icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   L8L send page
+   One small page with one job: open the visitor's email app
+   with their waitlist message filled in. The waitlist form
+   sends people here when it cannot open the email app itself.
+   Colours match the main page.
+   ========================================================= */
+:root {
+  --paper: #F5F4FB;
+  --sheet: #FFFFFF;
+  --ink: #1D1A4A;
+  --ink-soft: #4B4878;
+  --fuchsia: #D41E76;
+  --on-fuchsia: #FFFFFF;
+  --hard: #1D1A4A;
+  --tape: rgba(245, 181, 63, 0.62);
+  --dot: rgba(43, 47, 160, 0.11);
+  --logo-l: #2B2FA0;
+  --font-body: "Bricolage Grotesque", ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+  --blob: 58% 42% 55% 45% / 45% 55% 45% 55%;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #15133A;
+    --sheet: #221F55;
+    --ink: #F2F0FF;
+    --ink-soft: #B9B6E3;
+    --fuchsia: #FF4FA0;
+    --on-fuchsia: #210A1A;
+    --hard: #07061A;
+    --tape: rgba(255, 198, 92, 0.45);
+    --dot: rgba(255, 255, 255, 0.06);
+    --logo-l: #FFFFFF;
+    color-scheme: dark;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: calc(env(safe-area-inset-top, 0px) + 1.5rem) 1.25rem calc(env(safe-area-inset-bottom, 0px) + 3rem);
+  background-color: var(--paper);
+  background-image: radial-gradient(var(--dot) 1.2px, transparent 1.5px);
+  background-size: 26px 26px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.55;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px dashed var(--fuchsia); outline-offset: 4px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+main { width: 100%; max-width: 34rem; margin-inline: auto; display: grid; gap: 2.25rem; }
+.logo { display: inline-flex; justify-self: start; padding: .4rem 0; }
+.l8l { display: block; height: 2.2rem; width: auto; }
+.l8l .l8l-l { fill: var(--logo-l); }
+.l8l .l8l-8 { fill: var(--fuchsia); }
+.card {
+  position: relative;
+  display: grid;
+  gap: 1.1rem;
+  min-width: 0;
+  padding: 1.9rem 1.5rem 1.5rem;
+  background: var(--sheet);
+  border: 2.5px solid var(--hard);
+  box-shadow: 7px 8px 0 var(--hard);
+  transform: rotate(-.6deg);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 2rem;
+  width: 80px;
+  height: 22px;
+  background: var(--tape);
+  transform: rotate(-4deg);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 7vw, 2.3rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  text-wrap: balance;
+}
+p { margin: 0; }
+.actions, .row { display: flex; flex-wrap: wrap; gap: .8rem; }
+.row { gap: .2rem .9rem; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .85rem 1.45rem;
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  border: 2.5px solid var(--ink);
+  border-radius: var(--blob);
+  box-shadow: 4px 5px 0 var(--hard);
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translate(-1px, -2px) rotate(-1deg); box-shadow: 6px 7px 0 var(--hard); }
+.btn:active { transform: translate(3px, 4px); box-shadow: 1px 1px 0 var(--hard); }
+.btn-primary { background: var(--fuchsia); color: var(--on-fuchsia); }
+.btn-ghost { background: var(--sheet); color: var(--ink); }
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: .3rem .2rem;
+  font: inherit;
+  font-weight: 700;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-decoration: underline wavy var(--fuchsia) 2px;
+  text-underline-offset: 6px;
+}
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 11.5rem;
+  margin: 0;
+  padding: .8rem .9rem;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px dashed var(--ink);
+  border-radius: 10px 6px 12px 8px;
+  resize: vertical;
+}
+.alt { color: var(--ink-soft); font-size: 1rem; }
+.addr { color: var(--ink); font-weight: 800; overflow-wrap: anywhere; -webkit-user-select: all; user-select: all; }
+.status { min-height: 1.5em; font-size: 1rem; font-weight: 600; }
+.back { justify-self: start; font-weight: 700; text-decoration: underline wavy var(--fuchsia) 2px; text-underline-offset: 6px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .001ms !important; }
+}
+</style>
+</head>
+<body>
+<main>
+  <a class="logo" href="../" aria-label="L8L, back to the main page">
+    <svg class="l8l" viewBox="0 0 438 220" aria-hidden="true" focusable="false">
+      <path class="l8l-l" d="M0 20 L0 155 A65 65 0 0 0 65 220 L110 220 A20 20 0 0 0 110 180 L65 180 A25 25 0 0 1 40 155 L40 20 A20 20 0 0 0 0 20 ZM308 20 L308 155 A65 65 0 0 0 373 220 L418 220 A20 20 0 0 0 418 180 L373 180 A25 25 0 0 1 348 155 L348 20 A20 20 0 0 0 308 20 Z"/>
+      <path class="l8l-8" d="M161.2 102.67A62 62 0 1 1 254.8 102.67A68 68 0 1 1 161.2 102.67ZM186 62A22 22 0 1 0 230 62A22 22 0 1 0 186 62ZM180 152A28 28 0 1 0 236 152A28 28 0 1 0 180 152Z"/>
+    </svg>
+  </a>
+
+  <section class="card" id="ready" aria-labelledby="readyTitle" hidden>
+    <h1 id="readyTitle">Your message is ready</h1>
+    <p>Tap the button. Your email app opens with our address and your message filled in. Then tap send.</p>
+    <div class="actions">
+      <a class="btn btn-primary" id="openMail" href="mailto:illustratefortechies@gmail.com">Open my email app</a>
+      <a class="btn btn-ghost" id="openGmail" href="https://mail.google.com/mail/" target="_blank" rel="noopener" hidden>Open in Gmail</a>
+    </div>
+    <label class="sr-only" for="msg">Your message</label>
+    <textarea id="msg" readonly rows="8"></textarea>
+    <p class="alt">Nothing opened? Copy the message and send it to <strong class="addr">illustratefortechies@gmail.com</strong> yourself.</p>
+    <div class="row">
+      <button class="link-btn" type="button" id="copyMsg">Copy the message</button>
+      <button class="link-btn" type="button" id="copyAddr">Copy our email address</button>
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="card" id="empty" aria-labelledby="emptyTitle" hidden>
+    <h1 id="emptyTitle">Nothing to send yet</h1>
+    <p>This page opens when you tap &ldquo;Send by email&rdquo; on the L8L waitlist form. Fill in the form first.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="../#join">Go to the waitlist form</a>
+    </div>
+  </section>
+
+  <noscript>
+    <section class="card">
+      <h1>Email us</h1>
+      <p>Write to <a href="mailto:illustratefortechies@gmail.com">illustratefortechies@gmail.com</a> and tell us your name, where you live and who you are. We'll add you to the L8L waitlist.</p>
+    </section>
+  </noscript>
+
+  <a class="back" href="../">Back to L8L</a>
+</main>
+
+<script>
+(() => {
+  "use strict";
+  const TO = "illustratefortechies@gmail.com";
+  const $ = id => document.getElementById(id);
+
+  // The waitlist form hands the message over after the # in the address. That part stays on this device:
+  // a browser never sends it to the website.
+  const given = new URLSearchParams(location.hash.slice(1));
+  const subject = (given.get("s") || "L8L waitlist").slice(0, 200);
+  const body = (given.get("b") || "").slice(0, 4000);
+
+  // Take the message out of the address bar, so it is not left behind in this browser's history.
+  try { if (location.hash) history.replaceState(null, "", location.pathname); } catch (err) { /* the page works without it */ }
+
+  if (!body.trim()) {
+    $("empty").hidden = false;
+    return;
+  }
+
+  $("ready").hidden = false;
+  const msg = $("msg");
+  msg.value = body;
+  msg.style.height = (msg.scrollHeight + 4) + "px";   // show the whole message, no scrolling inside the box
+
+  // The address is always ours. Only the subject and the message come from the form.
+  $("openMail").href = "mailto:" + TO + "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body.replace(/\r?\n/g, "\r\n"));
+  $("openMail").addEventListener("click", () => {
+    $("status").textContent = "Your email app should now be open. Tap send there and you're on the list.";
+  });
+
+  // Gmail's website can open a ready message on a computer. On a phone it only shows the inbox,
+  // so this button is for computers (anything with a mouse or trackpad).
+  const gmail = $("openGmail");
+  gmail.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(TO) +
+    "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  gmail.hidden = !window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  // Copy text. If the browser refuses, select it so the visitor can copy it by hand.
+  async function copy(text, okMessage, fallbackEl) {
+    try {
+      await navigator.clipboard.writeText(text);
+      $("status").textContent = okMessage;
+    } catch (err) {
+      if (typeof fallbackEl.select === "function") {
+        fallbackEl.focus();
+        fallbackEl.select();
+      } else {
+        const range = document.createRange();
+        range.selectNodeContents(fallbackEl);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+      $("status").textContent = "Copying didn't work here. The text is selected, so you can copy it yourself.";
+    }
+  }
+  $("copyMsg").addEventListener("click", () => copy(body, "Message copied. Paste it into an email to us.", msg));
+  $("copyAddr").addEventListener("click", () => copy(TO, "Email address copied.", document.querySelector(".addr")));
+})();
+</script>
+</body>
+</html>

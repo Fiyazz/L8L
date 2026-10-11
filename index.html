@@ -1,0 +1,3639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>L8L | Learn tech skills on your phone, no data needed</title>
+<meta name="description" content="L8L is a learning app for young people aged 11 to 19. Download it once, then learn web design, coding and design thinking at your own pace, with or without internet.">
+<link rel="canonical" href="https://fiyazz.github.io/L8L/">
+<meta name="theme-color" content="#F5F4FB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15133A" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="L8L">
+<meta property="og:title" content="L8L | Learn tech skills on your phone, no data needed">
+<meta property="og:description" content="L8L is a learning app for young people aged 11 to 19. Download it once, then learn web design, coding and design thinking at your own pace, with or without internet.">
+<meta property="og:url" content="https://fiyazz.github.io/L8L/">
+<meta property="og:image" content="https://fiyazz.github.io/L8L/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="L8L. Learn tech skills on your phone. No data needed.">
+<meta name="twitter:card" content="summary_large_image">
+<style>[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Caveat:wght@500;700&amp;display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   L8L homepage
+   Layout: one paper column, 1160px wide. Every grid folds to
+   a single column on a phone.
+   Colours live in the tokens below. Change them once and the
+   whole page (including the collage and the logo) follows.
+   ========================================================= */
+:root {
+  --paper: #F5F4FB;        /* page background: cool exercise-book white */
+  --sheet: #FFFFFF;        /* cards, forms, the phone */
+  --ink: #1D1A4A;          /* text and outlines: deep indigo ink */
+  --ink-soft: #4B4878;
+  --fuchsia: #D41E76;      /* L8L pink: the 8 in the logo, the main buttons */
+  --fuchsia-soft: #FBD3E6;
+  --indigo: #2B2FA0;       /* L8L indigo: the two Ls in the logo, the map */
+  --indigo-soft: #DCDDF7;
+  --blue: #1A3BE0;         /* Lustr8lab blue: switches, progress, the parent logo */
+  --blue-soft: #DCE2FB;
+  --marigold: #F5B53F;
+  --marigold-soft: #FCEBC4;
+  --leaf: #239367;
+  --leaf-soft: #CFEEDD;
+  --kraft: #D9B98C;
+  --tape: rgba(245, 181, 63, 0.62);
+  --on-fuchsia: #FFFFFF;
+  --hard: #1D1A4A;                          /* hard cut-paper shadow under buttons */
+  --paper-shadow: rgba(29, 26, 74, 0.2);   /* softer shadow under paper pieces */
+  --dot: rgba(43, 47, 160, 0.11);
+  --line: rgba(29, 26, 74, 0.14);
+  --rule: rgba(43, 47, 160, 0.13);
+  --logo-l: #2B2FA0;       /* the two Ls of the logo */
+  --band: #2B2FA0;         /* the indigo strip under the hero */
+  --on-band: #FFFFFF;
+  --on-band-soft: #D9D9F5;
+  --code-bg: #1D1A4A;      /* the code card */
+  --code-ink: #F2F0FF;
+  --code-soft: #B9B6E3;
+  --code-tag: #9AA5FF;
+  --code-warn: #FFC65C;    /* the hint under the code when a colour is wrong */
+  --tok-focus: #FFE08A;    /* a yellow box while you type in it */
+  --tok-error: #C4124F;    /* the squiggle under a colour the browser doesn't know */
+
+  --font-body: "Bricolage Grotesque", ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+  --font-hand: "Caveat", "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+  --blob: 58% 42% 55% 45% / 45% 55% 45% 55%;
+  --spring: cubic-bezier(.2, .9, .3, 1.25);
+
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #15133A;
+    --sheet: #221F55;
+    --ink: #F2F0FF;
+    --ink-soft: #B9B6E3;
+    --fuchsia: #FF4FA0;
+    --fuchsia-soft: #4A1C4A;
+    --indigo: #7F84FF;
+    --indigo-soft: #2E2B70;
+    --blue: #8FA0FF;
+    --blue-soft: #232A6B;
+    --marigold: #FFC65C;
+    --marigold-soft: #4A3B1E;
+    --leaf: #4CC993;
+    --leaf-soft: #173F34;
+    --kraft: #B99668;
+    --tape: rgba(255, 198, 92, 0.45);
+    --on-fuchsia: #210A1A;
+    --hard: #07061A;
+    --paper-shadow: rgba(0, 0, 0, 0.5);
+    --dot: rgba(255, 255, 255, 0.06);
+    --line: rgba(255, 255, 255, 0.12);
+    --rule: rgba(255, 255, 255, 0.08);
+    --logo-l: #FFFFFF;
+    --band: #2E2B70;
+    --on-band: #F2F0FF;
+    --on-band-soft: #C9C6EE;
+    --code-bg: #0D0B2B;
+    --code-ink: #F2F0FF;
+    --code-soft: #B9B6E3;
+    --code-tag: #9AA5FF;
+    --code-warn: #FFC65C;
+    --tok-focus: #FFE08A;
+    --tok-error: #C4124F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #15133A;
+  --sheet: #221F55;
+  --ink: #F2F0FF;
+  --ink-soft: #B9B6E3;
+  --fuchsia: #FF4FA0;
+  --fuchsia-soft: #4A1C4A;
+  --indigo: #7F84FF;
+  --indigo-soft: #2E2B70;
+  --blue: #8FA0FF;
+  --blue-soft: #232A6B;
+  --marigold: #FFC65C;
+  --marigold-soft: #4A3B1E;
+  --leaf: #4CC993;
+  --leaf-soft: #173F34;
+  --kraft: #B99668;
+  --tape: rgba(255, 198, 92, 0.45);
+  --on-fuchsia: #210A1A;
+  --hard: #07061A;
+  --paper-shadow: rgba(0, 0, 0, 0.5);
+  --dot: rgba(255, 255, 255, 0.06);
+  --line: rgba(255, 255, 255, 0.12);
+  --rule: rgba(255, 255, 255, 0.08);
+  --logo-l: #FFFFFF;
+  --band: #2E2B70;
+  --on-band: #F2F0FF;
+  --on-band-soft: #C9C6EE;
+  --code-bg: #0D0B2B;
+  --code-ink: #F2F0FF;
+  --code-soft: #B9B6E3;
+  --code-tag: #9AA5FF;
+  --code-warn: #FFC65C;
+  --tok-focus: #FFE08A;
+  --tok-error: #C4124F;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 88px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  background-image: radial-gradient(var(--dot) 1.2px, transparent 1.5px);
+  background-size: 26px 26px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* paper grain over everything */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) body::before { mix-blend-mode: screen; opacity: 0.05; }
+}
+:root[data-theme="dark"] body::before { mix-blend-mode: screen; opacity: 0.05; }
+
+img, svg { max-width: 100%; }
+a { color: inherit; }
+p { margin: 0 0 1rem; }
+
+:focus-visible {
+  outline: 3px dashed var(--fuchsia);
+  outline-offset: 4px;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem; z-index: 200;
+  background: var(--sheet); color: var(--ink); padding: .6rem 1rem;
+  border: 2px solid var(--ink); text-decoration: none; font-weight: 700;
+}
+.skip-link:focus { top: calc(env(safe-area-inset-top, 0px) + 1rem); }
+
+.wrap {
+  width: 100%;
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* ---------- type ---------- */
+h1, h2, h3 { font-family: var(--font-body); color: var(--ink); }
+h1 {
+  font-size: clamp(2.6rem, 6.2vw, 4.7rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  font-weight: 800;
+  font-variation-settings: "opsz" 96;
+  margin: 0 0 1.4rem;
+  text-wrap: balance;
+}
+h2 {
+  font-size: clamp(2rem, 4.2vw, 3.1rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  font-variation-settings: "opsz" 72;
+  margin: 0 0 1rem;
+  text-wrap: balance;
+}
+h3 {
+  font-size: 1.3rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  margin: 0 0 .5rem;
+}
+.hand {
+  font-family: var(--font-hand);
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .85rem 1.45rem;
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  border: 2.5px solid var(--ink);
+  border-radius: var(--blob);
+  box-shadow: 4px 5px 0 var(--hard);
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translate(-1px, -2px) rotate(-1deg); box-shadow: 6px 7px 0 var(--hard); }
+.btn:active { transform: translate(3px, 4px); box-shadow: 1px 1px 0 var(--hard); }
+.btn-primary { background: var(--fuchsia); color: var(--on-fuchsia); }
+.btn-ghost { background: var(--sheet); color: var(--ink); }
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: .3rem .2rem;
+  font: inherit;
+  font-weight: 700;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-decoration: underline wavy var(--fuchsia) 2px;
+  text-underline-offset: 6px;
+}
+
+/* ---------- the L8L logo (three strokes of the same wire) ---------- */
+.l8l { display: block; height: 2rem; width: auto; overflow: visible; }
+.l8l path { fill: none; stroke-width: 40; stroke-linecap: round; stroke-linejoin: round; }
+.l8l .l8l-l { stroke: var(--logo-l); }
+.l8l .l8l-8 { stroke: var(--fuchsia); }
+.l8l.on-indigo .l8l-l { stroke: #FFFFFF; }
+.l8l.on-indigo .l8l-8 { stroke: #FF4FA0; }
+.l8l.is-drawing path {
+  stroke-dasharray: 1 2;
+  stroke-dashoffset: 1.05;
+  animation: draw .5s ease-out forwards;
+}
+.l8l.is-drawing path:nth-child(2) { animation-duration: .8s; animation-delay: .4s; }
+.l8l.is-drawing path:nth-child(3) { animation-delay: 1.1s; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+/* ---------- header ---------- */
+.site-header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 50;
+  background: var(--paper);
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px dashed var(--line);
+}
+.nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 70px;
+}
+.logo {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: .55rem;
+  min-height: 44px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.logo-by {
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 auto;
+}
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+.nav-links a:hover {
+  text-decoration: underline wavy var(--fuchsia) 2px;
+  text-underline-offset: 7px;
+}
+.nav-links a[aria-current="true"] {
+  font-weight: 700;
+  text-decoration: underline wavy var(--blue) 2px;
+  text-underline-offset: 7px;
+}
+.nav-tools {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.nav-cta { padding: .6rem 1.1rem; font-size: .98rem; box-shadow: 3px 4px 0 var(--hard); white-space: nowrap; }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  min-height: 44px;
+  padding: .45rem .8rem;
+  font: inherit;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  border-radius: var(--blob);
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+.icon-btn:hover { transform: rotate(-3deg); }
+.icon-btn svg { width: 22px; height: 22px; flex: none; }
+.sound-btn .spk { fill: currentColor; }
+.sound-btn .waves, .sound-btn .mute {
+  fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round;
+}
+.sound-btn[aria-pressed="false"] .waves { display: none; }
+.sound-btn[aria-pressed="true"] .mute { display: none; }
+.sound-btn[aria-pressed="true"] { background: var(--marigold); color: #1D1A4A; border-color: #1D1A4A; }
+
+.menu-btn { display: none; }
+
+@media (max-width: 1060px) {
+  .menu-btn { display: inline-flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: .25rem;
+    margin: 0;
+    padding: .75rem;
+    background: var(--sheet);
+    border: 2.5px solid var(--ink);
+    border-radius: 12px 6px 14px 8px;
+    box-shadow: 5px 6px 0 var(--paper-shadow);
+  }
+  .nav-links.is-open { display: flex; }
+  .nav-links a { display: block; padding: .7rem .8rem; font-size: 1.1rem; }
+  .nav-tools { margin-left: auto; }
+}
+@media (max-width: 560px) {
+  .logo-by { display: none; }
+  .nav-cta { display: none; }
+  .icon-btn .btn-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+}
+
+/* ---------- hero ---------- */
+.hero { padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(2.5rem, 6vw, 4.5rem); }
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+}
+.lede {
+  font-size: clamp(1.12rem, 1.6vw, 1.3rem);
+  color: var(--ink-soft);
+  max-width: 34rem;
+  margin: 0;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.availability {
+  margin: 1.5rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+}
+.availability svg { width: 22px; height: 22px; flex: none; }
+
+.hero-art { margin: 0; position: relative; }
+.collage {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+}
+.collage-note {
+  position: relative;
+  max-width: 25rem;
+  min-height: 3.4em;
+  margin: -.25rem auto 0;
+  padding: .7rem 1.2rem .6rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: var(--font-hand);
+  font-size: clamp(1.35rem, 2.3vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--ink);
+  background: var(--sheet);
+  box-shadow: 3px 4px 0 var(--paper-shadow);
+  transform: rotate(-1.5deg);
+}
+.collage-note::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 86px;
+  height: 22px;
+  background: var(--tape);
+  transform: translateX(-50%) rotate(3deg);
+}
+
+@media (max-width: 920px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-art { max-width: 560px; margin-inline: auto; width: 100%; }
+}
+
+/* collage pieces */
+.f-blush { fill: var(--fuchsia-soft); }
+.f-indigo { fill: var(--indigo); }
+.f-indigo-soft { fill: var(--indigo-soft); }
+.f-fuchsia { fill: var(--fuchsia); }
+.f-marigold { fill: var(--marigold); }
+.f-leaf { fill: var(--leaf); }
+.f-sheet { fill: var(--sheet); }
+.f-kraft { fill: var(--kraft); }
+.f-tape { fill: var(--tape); }
+.f-ink { fill: var(--ink); }
+.s-ink { stroke: var(--ink); }
+.s-indigo { stroke: var(--indigo); }
+.s-fuchsia { stroke: var(--fuchsia); }
+.s-marigold { stroke: var(--marigold); }
+.hatch-line { stroke: #FFFFFF; stroke-width: 1.6; opacity: .28; }
+.hand-text { font-family: var(--font-hand); font-size: 30px; font-weight: 700; fill: var(--ink); }
+.brackets {
+  font-family: var(--font-body);
+  font-size: 76px;
+  font-weight: 800;
+  fill: var(--leaf);
+  stroke: var(--ink);
+  stroke-width: 2.5px;
+  paint-order: stroke fill;
+  stroke-linejoin: round;
+}
+.route {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.2;
+  stroke-dasharray: 1 9;
+  stroke-linecap: round;
+  opacity: .5;
+}
+.paper-shadow { flood-color: var(--paper-shadow); }
+
+.layer { transition: transform .3s ease-out; }
+.piece {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: drop .8s var(--spring) both;
+  animation-delay: var(--d, 0s);
+}
+.piece.landed { animation: none; transition: transform .25s var(--spring); }
+.piece.landed.is-wiggling { animation: wiggle .55s ease; }
+.piece[role="button"] { cursor: pointer; }
+.piece.landed[role="button"]:hover { transform: scale(1.035) rotate(-1deg); }
+.piece:focus { outline: none; }
+.piece:focus-visible { outline: 3px dashed var(--fuchsia); outline-offset: 6px; }
+
+/* pieces settle into place; they are never hidden, so the picture is whole from the first frame */
+@keyframes drop {
+  from { transform: translateY(-18px) rotate(-5deg) scale(.97); }
+  to { transform: none; }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-4deg) scale(1.04); }
+  60% { transform: rotate(3deg) scale(1.02); }
+}
+
+/* ---------- at a glance ---------- */
+.glance { padding-block: 0 clamp(1rem, 3vw, 2rem); }
+.glance-panel {
+  padding: clamp(1.9rem, 4vw, 2.6rem) clamp(1.25rem, 4vw, 2.75rem);
+  background: var(--band);
+  color: var(--on-band);
+}
+.glance-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.4rem 2rem;
+}
+.glance-list li { display: flex; flex-direction: column; gap: .2rem; min-width: 0; }
+.glance-list strong {
+  font-size: clamp(1.3rem, 2.3vw, 1.65rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+.glance-list span { font-size: 1rem; line-height: 1.35; color: var(--on-band-soft); }
+@media (max-width: 920px) { .glance-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------- sections ---------- */
+.section { padding-block: clamp(4rem, 9vw, 7rem); }
+.section-head { max-width: 42rem; margin-bottom: clamp(2.25rem, 4vw, 3.5rem); }
+.section-head p { color: var(--ink-soft); max-width: 36rem; margin: 0; }
+
+/* ---------- what you'll learn: four paper cards that open a sheet ---------- */
+.skill-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(.9rem, 2vw, 1.5rem);
+}
+.skill-tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .35rem;
+  min-width: 0;
+  padding: 1.3rem 1.1rem 1.15rem;
+  font: inherit;
+  color: var(--ink);
+  text-align: left;
+  border: 2.5px solid var(--ink);
+  border-radius: 6px 14px 8px 12px;
+  box-shadow: 4px 5px 0 var(--paper-shadow);
+  cursor: pointer;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform .25s var(--spring), box-shadow .2s ease;
+}
+.skill-tab:nth-child(1) { --tilt: -2deg; --tape-r: -5deg; }
+.skill-tab:nth-child(2) { --tilt: 1.5deg; --tape-r: 4deg; }
+.skill-tab:nth-child(3) { --tilt: -1deg; --tape-r: -2deg; }
+.skill-tab:nth-child(4) { --tilt: 2.2deg; --tape-r: 6deg; }
+.skill-tab::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 72px;
+  height: 21px;
+  background: var(--tape);
+  transform: translateX(-50%) rotate(var(--tape-r, 0deg));
+  pointer-events: none;
+}
+.skill-tab:hover { transform: rotate(0deg) translateY(-4px); }
+.skill-tab[aria-selected="true"] {
+  transform: rotate(0deg) translateY(-8px);
+  box-shadow: 7px 9px 0 var(--hard);
+}
+.c-web { background: var(--fuchsia-soft); }
+.c-code { background: var(--leaf-soft); }
+.c-think { background: var(--marigold-soft); }
+.c-project { background: var(--indigo-soft); }
+.card-doodle { width: 86px; height: 64px; margin-bottom: .2rem; }
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+.card-tease { color: var(--ink-soft); font-size: 1rem; line-height: 1.4; }
+.card-open {
+  margin-top: .4rem;
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--ink-soft);
+}
+.skill-tab[aria-selected="true"] .card-open { color: var(--ink); font-weight: 700; }
+
+.skill-panel {
+  margin-top: 1.9rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 4vw, 3rem);
+  padding: clamp(1.5rem, 3.5vw, 2.4rem);
+  background: var(--sheet);
+  border: 2.5px solid var(--ink);
+  border-radius: 10px 4px 12px 6px;
+  box-shadow: 6px 7px 0 var(--paper-shadow);
+}
+.skill-panel h3 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0 0 .5rem;
+}
+.skill-panel p { margin: 0; color: var(--ink-soft); max-width: 30rem; }
+.skill-panel .hand { margin: 0 0 .7rem; color: var(--ink); }
+.bits, .path { list-style: none; margin: 0; padding: 0; display: flex; gap: .6rem; }
+.bits { flex-wrap: wrap; }
+.bits li {
+  padding: .45rem .95rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--blob);
+}
+.path { flex-direction: column; align-items: flex-start; counter-reset: step; }
+.path li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .7rem;
+  align-items: center;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.path li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  font-weight: 800;
+  color: #1D1A4A;
+  background: var(--marigold);
+  border: 2px solid var(--ink);
+  border-radius: var(--blob);
+}
+@media (max-width: 1020px) { .skill-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem 1rem; } }
+@media (max-width: 760px) { .skill-panel { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .skill-tab { padding: 1rem .8rem .85rem; }
+  .card-doodle { width: 60px; height: 45px; }
+  .card-title { font-size: 1.15rem; }
+  .card-tease { display: none; }
+}
+
+/* ---------- try it: change the code ---------- */
+.try { margin-top: clamp(3rem, 7vw, 5rem); }
+.try-head { max-width: 40rem; }
+.try-head h3 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0 0 .5rem;
+}
+.try-head p { margin: 0; color: var(--ink-soft); }
+.try-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(1.4rem, 3vw, 2.2rem);
+  align-items: stretch;
+  margin-top: 1.75rem;
+}
+.code-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--code-bg);
+  color: var(--code-ink);
+  border: 2.5px solid var(--hard);
+  border-radius: 12px 6px 14px 8px;
+  box-shadow: 6px 7px 0 var(--paper-shadow);
+  transform: rotate(-.6deg);
+}
+.code-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 .75rem;
+  padding: .35rem 1rem;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--code-soft);
+  border-bottom: 2px dashed rgba(255, 255, 255, 0.2);
+}
+.code-tools { display: flex; gap: 1.1rem; }
+.code-bar .link-btn { color: var(--code-ink); text-decoration-color: var(--marigold); }
+.code {
+  padding: 1rem 1rem .9rem;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 3.1rem;
+  overflow-x: auto;
+}
+/* long lines wrap with a hanging indent, so every yellow box stays on screen on a phone */
+.code-line { padding-left: 1.4rem; text-indent: -1.4rem; }
+.code-line.in { padding-left: 2.9rem; }
+.tag { color: var(--code-tag); }
+.tok-set { white-space: nowrap; }
+
+/* the yellow boxes are real text fields: type in one and the page follows */
+.tok {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 9ch;                 /* the script sets the real width from what is typed */
+  max-width: 100%;
+  min-height: 2.75rem;
+  margin: 0;
+  padding: .4rem .7rem;
+  font: inherit;
+  font-size: 1rem;            /* 16px, so a phone doesn't zoom in when you tap */
+  font-weight: 700;
+  line-height: 1.2;
+  text-indent: 0;
+  vertical-align: middle;
+  color: #1D1A4A;
+  caret-color: var(--tok-error);
+  background: var(--marigold);
+  border: 2px solid #07061A;
+  border-radius: 9px 6px 10px 7px;
+  box-shadow: 2px 3px 0 rgba(0, 0, 0, 0.5);
+  transition: transform .12s ease, background-color .12s ease;
+}
+.tok::placeholder { color: #1D1A4A; opacity: .55; font-weight: 600; }
+.tok:hover { transform: translateY(-2px); }
+.tok:focus { transform: none; background: var(--tok-focus); }
+.tok:focus-visible { outline-color: var(--code-ink); outline-width: 2px; outline-offset: 2px; }
+/* a colour the browser doesn't know gets a squiggle, the way a code editor marks a mistake */
+.tok[aria-invalid="true"] {
+  text-decoration: underline wavy var(--tok-error) 2px;
+  text-underline-offset: 4px;
+}
+/* the small square shows the colour that is typed next to it */
+.swatch {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: .4rem;
+  vertical-align: middle;
+  background: var(--sw, transparent);
+  border: 2px solid var(--code-ink);
+  border-radius: 4px;
+}
+.swatch.is-unknown {
+  background: linear-gradient(to top right, transparent 43%, var(--code-ink) 43%, var(--code-ink) 57%, transparent 57%);
+}
+.code-hint {
+  margin: 0;
+  min-height: 4.3em;
+  padding: .75rem 1rem .9rem;
+  font-size: .95rem;
+  line-height: 1.4;
+  color: var(--code-soft);
+  border-top: 2px dashed rgba(255, 255, 255, 0.2);
+}
+.code-hint.is-warn { color: var(--code-warn); font-weight: 600; }
+
+/* the little web page is always a white page, in either theme, like a real one */
+.preview-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  color: #1D1A4A;
+  border: 2.5px solid var(--hard);
+  border-radius: 6px 12px 8px 14px;
+  box-shadow: 6px 7px 0 var(--paper-shadow);
+  overflow: hidden;
+  transform: rotate(.7deg);
+}
+.browser-bar {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .6rem .9rem;
+  font-size: .95rem;
+  font-weight: 600;
+  color: #4B4878;
+  background: #ECEBF7;
+  border-bottom: 2.5px solid #1D1A4A;
+}
+.browser-bar i { width: .75rem; height: .75rem; border: 2px solid #1D1A4A; border-radius: 50%; background: #D41E76; }
+.browser-bar i:nth-child(2) { background: #F5B53F; }
+.browser-bar i:nth-child(3) { background: #239367; }
+.browser-bar span { margin-left: .5rem; }
+.preview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .8rem;
+  padding: 1.6rem 1.3rem 1.2rem;
+}
+.pv-h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3.6vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  overflow-wrap: anywhere;
+}
+.pv-p { margin: 0; font-size: 1.1rem; color: #1D1A4A; overflow-wrap: anywhere; }
+.pv-row { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1rem; margin-top: .2rem; }
+.pv-btn {
+  font: inherit;
+  font-weight: 700;
+  min-width: 3.2rem;
+  min-height: 2.9rem;
+  max-width: 100%;
+  padding: .65rem 1.25rem;
+  color: #1D1A4A;
+  overflow-wrap: anywhere;
+  border: 2.5px solid #1D1A4A;
+  border-radius: 12px;
+  box-shadow: 3px 4px 0 #1D1A4A;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.pv-btn:active { transform: translate(2px, 3px); box-shadow: 1px 1px 0 #1D1A4A; }
+.pv-btn:focus-visible { outline-color: #D41E76; }
+.pv-count {
+  margin: 0;
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  line-height: 1.15;
+  color: #4B4878;
+}
+@media (max-width: 820px) {
+  .try-grid { grid-template-columns: 1fr; }
+  /* on a phone the little page sits above the code and stays pinned there, so you can watch it while you type */
+  .preview-card {
+    order: -1;
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 82px);
+    z-index: 5;
+    max-height: 13.5rem;
+  }
+  .browser-bar { padding: .4rem .8rem; font-size: .9rem; }
+  .preview { gap: .45rem; padding: .8rem 1rem .75rem; overflow-y: auto; }
+  .pv-h1 { font-size: 1.6rem; }
+  .pv-p { font-size: 1rem; }
+  .pv-row { gap: .3rem .8rem; margin-top: 0; }
+  .pv-btn { min-height: 2.75rem; padding: .5rem 1rem; }
+  .pv-count { font-size: 1.25rem; }
+  .code { line-height: 2.95rem; }
+}
+/* a phone held sideways is too short to pin anything */
+@media (max-width: 820px) and (max-height: 520px) {
+  .preview-card { position: relative; top: auto; }
+}
+
+/* ---------- how it works ---------- */
+.how-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  grid-template-areas: "main phone" "note phone";
+  grid-template-rows: auto 1fr;
+  column-gap: clamp(2rem, 5vw, 4rem);
+  row-gap: clamp(2rem, 4vw, 3rem);
+  align-items: start;
+}
+.how-main { grid-area: main; min-width: 0; padding-top: 1.5rem; }
+.phone-col { grid-area: phone; }
+.how-notes { grid-area: note; }
+.step-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .8rem;
+  margin-bottom: 1.9rem;
+}
+.step-tab {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  min-width: 0;
+  padding: .75rem .9rem;
+  font: inherit;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+  text-align: left;
+  background: var(--sheet);
+  border: 2.5px solid var(--ink);
+  border-radius: 10px 4px 12px 6px;
+  box-shadow: 4px 5px 0 var(--paper-shadow);
+  cursor: pointer;
+  transition: transform .2s var(--spring), box-shadow .2s ease, background-color .2s ease;
+}
+.step-tab:hover { transform: translateY(-3px); }
+.step-tab[aria-selected="true"] {
+  background: var(--marigold-soft);
+  transform: translateY(-5px);
+  box-shadow: 6px 8px 0 var(--hard);
+}
+.num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #1D1A4A;
+  background: var(--marigold);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--blob);
+}
+.step-copy h3 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0 0 .6rem;
+}
+.step-copy p { color: var(--ink-soft); max-width: 32rem; }
+.step-copy .hand { color: var(--ink); margin-bottom: 1.2rem; }
+.step-copy .btn { margin-top: .4rem; }
+
+.phone-col { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; }
+.phone {
+  width: 16.5rem;
+  max-width: 100%;
+  aspect-ratio: 9 / 16.5;
+  padding: .65rem;
+  background: var(--sheet);
+  border: 3px solid var(--ink);
+  border-radius: 2rem;
+  box-shadow: 7px 9px 0 var(--paper-shadow);
+  transform: rotate(2deg);
+}
+.phone-screen {
+  height: 100%;
+  border-radius: 1.4rem;
+  background: var(--indigo-soft);
+  overflow: hidden;
+}
+.screen {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  padding: 1.15rem .9rem .95rem;
+  font-size: .9rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.s-heading { font-size: 1.08rem; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; }
+.phone-caption {
+  margin: 0;
+  max-width: 17rem;
+  text-align: center;
+  font-size: .95rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+/* screen 1: download once */
+.s-download { align-items: center; justify-content: center; text-align: center; gap: .85rem; }
+.app-tile {
+  width: 5.4rem;
+  height: 5.4rem;
+  display: grid;
+  place-items: center;
+  background: #2B2FA0;
+  border: 2.5px solid var(--hard);
+  border-radius: 1.3rem;
+  box-shadow: 3px 4px 0 var(--paper-shadow);
+}
+.app-tile .l8l { width: 3.8rem; height: auto; }
+.bar {
+  width: 100%;
+  height: .9rem;
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.bar span { display: block; height: 100%; background: var(--blue); transform-origin: left center; }
+.s-download.is-running .bar span { animation: fill 2.2s ease-in-out both; }
+@keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.s-status { margin: 0; min-height: 1.4em; font-weight: 700; }
+.s-download.is-running .s-done,
+.s-download:not(.is-running) .s-doing { display: none; }
+.mini-btn {
+  font: inherit;
+  font-size: .88rem;
+  font-weight: 700;
+  min-height: 2.75rem;
+  padding: .5rem .9rem;
+  color: var(--ink);
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  border-radius: var(--blob);
+  cursor: pointer;
+}
+
+/* screen 2: lessons with the data switch */
+.s-top { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.net {
+  padding: .2rem .5rem;
+  font-size: .74rem;
+  font-weight: 700;
+  white-space: nowrap;
+  background: var(--leaf-soft);
+  border: 2px solid var(--ink);
+  border-radius: 1rem;
+}
+.is-offline .net { background: var(--marigold-soft); }
+.lesson-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.lesson-list li {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .55rem .6rem;
+  font-weight: 700;
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  border-radius: 10px 6px 12px 8px;
+}
+.lesson-list svg { margin-left: auto; width: 1.3rem; height: 1.3rem; flex: none; }
+.dot { width: .85rem; height: .85rem; flex: none; border: 2px solid var(--ink); border-radius: 50%; }
+.data-row {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: .55rem .65rem;
+  font-weight: 700;
+  background: var(--sheet);
+  border: 2px dashed var(--ink);
+  border-radius: 12px;
+}
+.switch {
+  position: relative;
+  flex: none;
+  width: 3.5rem;
+  height: 2.1rem;
+  padding: 0;
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color .2s ease;
+}
+.switch::after { content: ""; position: absolute; inset: -9px; }   /* a bigger target for thumbs */
+.switch[aria-checked="true"] { background: var(--blue); }
+.switch .knob {
+  position: absolute;
+  top: 50%;
+  left: .2rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: left .2s var(--spring);
+}
+.switch[aria-checked="true"] .knob { left: calc(100% - 1.55rem); }
+.s-note { margin: 0; min-height: 2.3em; font-family: var(--font-hand); font-size: 1.25rem; font-weight: 700; line-height: 1.12; }
+
+/* screen 3: your project */
+.s-small { margin: 0; font-weight: 600; color: var(--ink-soft); }
+.track-row { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+.track {
+  font: inherit;
+  font-weight: 700;
+  min-height: 2.75rem;
+  padding: .4rem;
+  color: var(--ink);
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  border-radius: var(--blob);
+  cursor: pointer;
+}
+.track[aria-pressed="true"] { background: var(--marigold); color: #1D1A4A; }
+.project-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  padding: .8rem;
+  text-align: center;
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  border-radius: 10px 6px 12px 8px;
+}
+.project-card svg { width: 6rem; height: auto; }
+.project-card p { margin: 0; }
+[data-track="coding"] .art-design,
+[data-track="design"] .art-coding { display: none; }
+
+.how-notes { display: flex; }
+.sticky {
+  position: relative;
+  max-width: 26rem;
+  padding: 1.4rem 1.35rem 1.45rem;
+  background: var(--marigold-soft);
+  border-radius: 2px 2px 20px 2px;
+  box-shadow: 4px 6px 0 var(--paper-shadow);
+  transform: rotate(-1.4deg);
+}
+.sticky::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 1.5rem;
+  width: 70px;
+  height: 20px;
+  background: var(--tape);
+  transform: rotate(-4deg);
+}
+.sticky h3 { font-family: var(--font-hand); font-size: 1.85rem; font-weight: 700; margin-bottom: .3rem; }
+.sticky p { margin: 0; }
+@media (max-width: 920px) {
+  .how-grid { grid-template-columns: 1fr; grid-template-areas: "main" "phone" "note"; grid-template-rows: auto; }
+  .how-main { padding-top: 0; }
+  .phone { width: 15rem; }
+}
+@media (max-width: 560px) {
+  .step-tabs { gap: .55rem; }
+  .step-tab { flex-direction: column; align-items: flex-start; gap: .45rem; padding: .65rem .6rem; font-size: .95rem; }
+  .num { width: 2.1rem; height: 2.1rem; font-size: 1.05rem; }
+}
+
+/* ---------- what it costs ---------- */
+.cost-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.4rem, 2.5vw, 2rem);
+  align-items: start;
+}
+.cost-sheet {
+  position: relative;
+  padding: 1.6rem 1.4rem 1.7rem;
+  border: 2.5px solid var(--ink);
+  box-shadow: 6px 7px 0 var(--paper-shadow);
+}
+.cost-sheet.free { background: var(--leaf-soft); border-radius: 14px 4px 10px 6px; transform: rotate(-1deg); }
+.cost-sheet.paid { background: var(--marigold-soft); border-radius: 4px 12px 6px 14px; transform: rotate(.8deg) translateY(1.2rem); }
+.cost-sheet.funded { background: var(--indigo-soft); border-radius: 10px 6px 14px 4px; transform: rotate(-.5deg); }
+.cost-sheet h3 { font-family: var(--font-hand); font-size: 2.1rem; font-weight: 700; line-height: 1; margin: 0 0 .9rem; }
+.cost-sheet p { margin: 1rem 0 0; color: var(--ink-soft); }
+.ticks { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+.ticks li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .6rem; align-items: start; line-height: 1.4; }
+.ticks svg { width: 1.4rem; height: 1.4rem; margin-top: .1rem; }
+.text-link { display: inline-block; margin-top: 1rem; font-weight: 700; text-decoration: underline wavy var(--fuchsia) 2px; text-underline-offset: 6px; }
+@media (max-width: 920px) {
+  .cost-grid { grid-template-columns: 1fr; }
+  .cost-sheet.paid { transform: rotate(.8deg); }
+}
+
+/* ---------- pilot ---------- */
+.pilot-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+.pilot-copy p { max-width: 36rem; }
+.pilot-copy p:first-of-type { color: var(--ink); }
+.pilot-copy p + p { color: var(--ink-soft); }
+.chips {
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+}
+.chips li {
+  padding: .45rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  border-radius: var(--blob);
+}
+.seg { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.1rem; }
+.seg-btn {
+  font: inherit;
+  font-size: .98rem;
+  font-weight: 700;
+  min-height: 2.75rem;
+  padding: .45rem 1rem;
+  color: var(--ink);
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  border-radius: var(--blob);
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+.seg-btn:hover { transform: rotate(-2deg); }
+.seg-btn[aria-pressed="true"] { background: var(--marigold); color: #1D1A4A; }
+.notebook {
+  padding: 1.6rem 1.5rem 1.3rem 3.5rem;
+  background-color: var(--sheet);
+  background-image:
+    linear-gradient(90deg, transparent 2.4rem, var(--fuchsia) 2.4rem, var(--fuchsia) calc(2.4rem + 2px), transparent calc(2.4rem + 2px)),
+    repeating-linear-gradient(to bottom, transparent 0 31px, var(--rule) 31px 32px);
+  border: 2.5px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: 6px 7px 0 var(--paper-shadow);
+  transform: rotate(-1deg);
+}
+.tally { display: block; width: 100%; height: auto; overflow: visible; }
+.kid { transform-box: fill-box; transform-origin: bottom center; transition: transform .2s var(--spring); }
+.kid:hover { transform: translateY(-4px) scale(1.08); }
+.kid circle, .kid path { transition: fill .25s ease; }
+.kid.done circle, .kid.done path { fill: var(--fuchsia); stroke: var(--ink); stroke-width: 2; }
+.kid.not-done circle, .kid.not-done path { fill: none; stroke: var(--ink-soft); stroke-width: 2; stroke-dasharray: 4 4; }
+.tally[data-view="tracks"] .kid.coding circle,
+.tally[data-view="tracks"] .kid.coding path { fill: var(--indigo); }
+.tally-caption {
+  margin: .9rem 0 .2rem;
+  font-family: var(--font-hand);
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.tally-legend { margin: 0; font-size: .98rem; color: var(--ink-soft); }
+.key { display: inline-block; width: .8rem; height: .8rem; margin-right: .3rem; border: 2px solid var(--ink); border-radius: 50%; vertical-align: -1px; }
+.key.k-coding { background: var(--indigo); }
+.key.k-design { background: var(--fuchsia); }
+@media (max-width: 920px) { .pilot-grid { grid-template-columns: 1fr; } }
+
+/* ---------- who it's for ---------- */
+.aud-tabs { display: flex; flex-wrap: wrap; gap: .7rem; margin-bottom: 1.6rem; }
+.aud-tab {
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  min-height: 2.9rem;
+  padding: .55rem 1.15rem;
+  color: var(--ink);
+  background: var(--sheet);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--blob);
+  box-shadow: 3px 4px 0 var(--paper-shadow);
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+.aud-tab:hover { transform: rotate(-2deg); }
+.aud-tab[aria-selected="true"] { background: var(--marigold); color: #1D1A4A; box-shadow: 4px 5px 0 var(--hard); }
+.aud-panel {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 2.2rem);
+  padding: clamp(1.5rem, 3.5vw, 2.4rem);
+  border: 2.5px solid var(--ink);
+  border-radius: 14px 4px 10px 6px;
+  box-shadow: 6px 7px 0 var(--paper-shadow);
+}
+.aud-panel.a-young { background: var(--fuchsia-soft); }
+.aud-panel.a-parent { background: var(--indigo-soft); }
+.aud-panel.a-partner { background: var(--marigold-soft); }
+.aud-panel h3 {
+  font-size: clamp(1.5rem, 2.8vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.1rem;
+}
+.who-doodle { width: 72px; height: 72px; display: block; }
+.facts-dl {
+  margin: 0 0 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 2.2rem;
+}
+.facts-dl dt { font-family: var(--font-hand); font-size: 1.45rem; font-weight: 700; line-height: 1.1; }
+.facts-dl dd { margin: .2rem 0 0; color: var(--ink-soft); }
+@media (max-width: 720px) {
+  .aud-panel { grid-template-columns: 1fr; }
+  .facts-dl { grid-template-columns: 1fr; }
+}
+
+/* ---------- questions ---------- */
+.faq-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.faq-list { display: grid; gap: .95rem; }
+.sticky.ask { margin-top: 1rem; background: var(--leaf-soft); transform: rotate(1.6deg); }
+.sticky.ask a { font-weight: 700; text-decoration: underline wavy var(--fuchsia) 2px; text-underline-offset: 6px; }
+@media (max-width: 920px) { .faq-grid { grid-template-columns: 1fr; } }
+.faq {
+  background: var(--sheet);
+  border: 2.5px solid var(--ink);
+  border-radius: 10px 4px 12px 6px;
+  box-shadow: 4px 5px 0 var(--paper-shadow);
+}
+.faq:nth-child(even) { border-radius: 4px 12px 6px 14px; }
+.faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+  cursor: pointer;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #1D1A4A;
+  background: var(--marigold);
+  border: 2px solid var(--ink);
+  border-radius: var(--blob);
+  transition: transform .25s var(--spring);
+}
+.faq[open] summary::after { content: "\2212"; transform: rotate(180deg); }
+.faq p { margin: 0; padding: 0 1.2rem 1.25rem; max-width: 40rem; color: var(--ink-soft); }
+
+/* ---------- join ---------- */
+.join-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  padding: clamp(3.25rem, 7vw, 5.5rem) clamp(1.25rem, 5vw, 4rem);
+  background: var(--fuchsia);
+  color: var(--on-fuchsia);
+}
+.join-copy { display: grid; gap: 1.1rem; align-content: start; }
+.join-panel h2 { color: inherit; margin: 0; }
+.join-panel .join-copy p { max-width: 30rem; margin: 0; font-size: 1.15rem; }
+.join-panel .join-copy .join-ask {
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.18;
+}
+.join-form, .join-result {
+  position: relative;
+  display: grid;
+  gap: 1.1rem;
+  min-width: 0;
+  padding: 1.75rem 1.5rem 1.5rem;
+  color: var(--ink);
+  background: var(--sheet);
+  border: 2.5px solid var(--hard);
+  box-shadow: 7px 8px 0 var(--hard);
+  transform: rotate(1deg);
+}
+.join-form::before, .join-result::before {
+  content: "";
+  position: absolute;
+  top: -11px;
+  right: 2rem;
+  width: 80px;
+  height: 22px;
+  background: var(--tape);
+  transform: rotate(5deg);
+}
+.field label, .field legend {
+  display: block;
+  margin-bottom: .4rem;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.field input, .field textarea, .field select {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 3rem;
+  margin: 0;
+  padding: .7rem .9rem;
+  font: inherit;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  color: var(--ink);
+  background-color: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 10px 6px 12px 8px;
+}
+.field textarea { min-height: 6.2rem; line-height: 1.45; resize: vertical; }
+/* a dropdown gets a small arrow drawn from two slanted halves, in the ink colour of either theme */
+.field select {
+  padding-right: 2.4rem;
+  text-overflow: ellipsis;
+  background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position: right 1.2rem top 55%, right .8rem top 55%;
+  background-size: .4rem .4rem;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.field select:disabled { opacity: .55; cursor: default; }
+.field input:focus-visible, .field textarea:focus-visible, .field select:focus-visible { outline-offset: 2px; }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem .8rem; }
+.follow { display: grid; gap: 1.1rem; min-width: 0; }
+.dob { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) minmax(0, 1.2fr); gap: .5rem; }
+.dob select { padding-left: .65rem; padding-right: 1.5rem; background-position: right .8rem top 55%, right .4rem top 55%; }
+@media (max-width: 420px) { .pair { grid-template-columns: 1fr; } }
+.optional { font-weight: 500; color: var(--ink-soft); }
+.field-help { margin: .45rem 0 0; font-size: .95rem; line-height: 1.4; color: var(--ink-soft); }
+fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
+/* the tick box a student marks to say a parent or guardian agrees */
+.check {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .8rem;
+  align-items: start;
+  padding: .85rem .9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  background: var(--marigold-soft);
+  border: 2px dashed var(--ink);
+  border-radius: 10px 6px 12px 8px;
+  cursor: pointer;
+}
+.check input {
+  -webkit-appearance: none;
+  appearance: none;
+  display: grid;
+  place-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin: 0;
+  background: var(--sheet);
+  border: 2px solid var(--ink);
+  border-radius: 7px 5px 8px 6px;
+  cursor: pointer;
+}
+.check input::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  background: var(--ink);
+  clip-path: polygon(13% 47%, 0 63%, 42% 100%, 100% 17%, 84% 4%, 39% 68%);
+  transform: scale(0);
+  transition: transform .15s var(--spring);
+}
+.check input:checked::before { transform: scale(1); }
+.check input:focus-visible { outline: 3px dashed var(--fuchsia); outline-offset: 3px; }
+.send { display: grid; gap: .8rem; }
+.send-note { margin: 0; font-size: 1rem; font-weight: 700; line-height: 1.35; }
+.form-status { min-height: 1.5em; margin: 0; font-size: 1rem; }
+.form-status.is-error { color: var(--fuchsia); font-weight: 600; }
+.join-form .btn { justify-self: start; }
+.join-result h3 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
+.join-result h3:focus { outline: none; }
+.join-result p { margin: 0; }
+.join-result textarea {
+  width: 100%;
+  min-height: 11.5rem;
+  padding: .8rem .9rem;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px dashed var(--ink);
+  border-radius: 10px 6px 12px 8px;
+  resize: vertical;
+}
+.result-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+.addr { font-weight: 800; overflow-wrap: anywhere; -webkit-user-select: all; user-select: all; }
+.send-to { display: flex; flex-wrap: wrap; align-items: center; gap: .2rem .8rem; }
+@media (max-width: 920px) { .join-panel { grid-template-columns: 1fr; } }
+
+/* ---------- footer ---------- */
+.site-footer { padding-block: clamp(3rem, 6vw, 4.5rem) 3rem; }
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.footer-about p { max-width: 30rem; margin: .8rem 0 0; color: var(--ink-soft); }
+.footer-about .l8l { height: 2.6rem; }
+.made-by {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: .5rem .7rem;
+  margin-top: 1.4rem;
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--ink-soft);
+}
+.lustr8 { display: block; height: 2.1rem; width: auto; fill: var(--blue); }
+.footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: .35rem; }
+.footer-links a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 600; text-decoration: none; }
+.footer-links a:hover { text-decoration: underline wavy var(--fuchsia) 2px; text-underline-offset: 6px; }
+.footer-links .mail { display: flex; flex-wrap: wrap; align-items: center; gap: .1rem .8rem; }
+.footer-links .mail .addr { display: block; min-height: 0; padding-block: .6rem; font-weight: 800; }
+.phone-no { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.footer-links .phone-no { margin-left: .45rem; font-weight: 800; }
+.copyright { margin: 2.5rem 0 0; font-size: .95rem; color: var(--ink-soft); }
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Shared SVG pieces: filters for the hand-cut paper look -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- wobbly cut edges + a flat paper shadow -->
+    <filter id="paper" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G" result="cut"/>
+      <feDropShadow class="paper-shadow" in="cut" dx="3" dy="4" stdDeviation="0" flood-opacity="1"/>
+    </filter>
+    <!-- wobbly edges only, for small doodles -->
+    <filter id="wobble" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="9" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <line x1="0" y1="0" x2="0" y2="9" class="hatch-line"/>
+    </pattern>
+    <path id="spark" d="M0 -14 Q2 -2 14 0 Q2 2 0 14 Q-2 2 -14 0 Q-2 -2 0 -14Z"/>
+  </defs>
+</svg>
+
+<!-- Sound.
+     The music and the soft tap are made in the browser, so the page needs no audio files.
+     The music is an original piece written for this page. Its loudness is one number in the
+     script (MUSIC_LEVEL), and the tap's is another (TAP_LEVEL).
+     To use a track you own or have a licence for, publish the file with the page and
+     add a src attribute: <audio id="ambient-audio" src="music.mp3" ...> -->
+<audio id="ambient-audio" loop preload="none"></audio>
+
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="logo" href="#top" aria-label="L8L home">
+      <svg class="l8l" viewBox="0 0 438 220" aria-hidden="true" focusable="false">
+        <path class="l8l-l" pathLength="1" d="M20 20V155A45 45 0 0 0 65 200H110"/>
+        <path class="l8l-8" pathLength="1" d="M208 104A42 42 0 1 1 208 20A42 42 0 1 1 208 104A48 48 0 1 0 208 200A48 48 0 1 0 208 104"/>
+        <path class="l8l-l" pathLength="1" d="M328 20V155A45 45 0 0 0 373 200H418"/>
+      </svg>
+      <span class="logo-by">by Lustr8lab</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#learn">Skills</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#cost">Cost</a></li>
+      <li><a href="#pilot">Our pilot</a></li>
+      <li><a href="#who">Who it's for</a></li>
+      <li><a href="#faq">Questions</a></li>
+    </ul>
+
+    <div class="nav-tools">
+      <button class="icon-btn sound-btn" id="soundToggle" type="button" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path class="spk" d="M3 9.5h4l5-4.2v13.4l-5-4.2H3z"/>
+          <path class="waves" d="M15.5 9.2a4 4 0 0 1 0 5.6M18.3 6.6a7.6 7.6 0 0 1 0 10.8"/>
+          <path class="mute" d="M16 9.5l5 5M21 9.5l-5 5"/>
+        </svg>
+        <span class="btn-text">Sound</span>
+      </button>
+      <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h12M4 17h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        <span class="btn-text">Menu</span>
+      </button>
+      <a class="btn btn-primary nav-cta" href="#join">Join the waitlist</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-title">Learn tech skills on your phone. No data needed.</h1>
+        <p class="lede">L8L is a learning app for young people aged 11 to 19. Download it once, then learn web design, coding and design thinking at your own pace, with or without internet.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#join">Join the waitlist</a>
+          <a class="btn btn-ghost" href="#learn">See what you'll learn</a>
+        </div>
+        <p class="availability">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="var(--blue)"/><path d="M12 6.8V12l3.4 2.2" fill="none" stroke="var(--paper)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Coming soon. Free to download.
+        </p>
+      </div>
+
+      <figure class="hero-art">
+        <svg class="collage" id="collage" viewBox="0 0 560 540" role="group" aria-labelledby="collageTitle">
+          <title id="collageTitle">A paper-cut collage: a map of Africa with a star on Lagos, a phone with lessons, a pencil, code brackets and a smiling sun. Tap a piece to learn more.</title>
+
+          <!-- blush backdrop -->
+          <g class="layer" data-depth="4">
+            <g class="piece" style="--d:0s">
+              <circle class="f-blush" cx="285" cy="282" r="222" filter="url(#paper)"/>
+            </g>
+          </g>
+
+          <!-- sun -->
+          <g class="layer" data-depth="7">
+            <g class="piece" style="--d:.22s" role="button" tabindex="0" aria-label="The sun"
+               data-note="Learn at your own pace, morning, noon or night.">
+              <g transform="translate(478 78)" filter="url(#paper)">
+                <path class="s-marigold" stroke-width="7" stroke-linecap="round" fill="none"
+                      d="M0-50V-66M0 50V66M-50 0H-66M50 0H66M35-35L47-47M-35-35L-47-47M35 35L47 47M-35 35L-47 47"/>
+                <circle r="38" class="f-marigold s-ink" stroke-width="2.5"/>
+                <circle cx="-12" cy="-6" r="3.6" class="f-ink"/>
+                <circle cx="12" cy="-6" r="3.6" class="f-ink"/>
+                <path d="M-13 8q13 13 26 0" fill="none" class="s-ink" stroke-width="3" stroke-linecap="round"/>
+              </g>
+            </g>
+          </g>
+
+          <!-- Africa -->
+          <g class="layer" data-depth="10">
+            <g class="piece" style="--d:.1s" role="button" tabindex="0" aria-label="Map of Africa"
+               data-note="L8L means Little Africa. We're building it for young people across the continent.">
+              <g filter="url(#paper)">
+                <path data-shape="africa" class="f-indigo"
+                      d="M150 90L200 70L250 75L275 68L290 95L330 100L365 95L390 105L400 150L420 190L440 230L470 235L455 270L430 310L420 350L410 380L395 420L360 455L320 475L295 465L280 430L270 390L262 340L250 300L220 290L180 285L140 275L110 255L90 225L95 190L110 150L130 115Z"/>
+                <ellipse class="f-indigo" cx="450" cy="392" rx="11" ry="30" transform="rotate(18 450 392)"/>
+              </g>
+              <path data-shape="africa" fill="url(#hatch)" pointer-events="none"
+                    d="M150 90L200 70L250 75L275 68L290 95L330 100L365 95L390 105L400 150L420 190L440 230L470 235L455 270L430 310L420 350L410 380L395 420L360 455L320 475L295 465L280 430L270 390L262 340L250 300L220 290L180 285L140 275L110 255L90 225L95 190L110 150L130 115Z"/>
+            </g>
+          </g>
+
+          <!-- paper plane route -->
+          <g class="layer" data-depth="12">
+            <g class="piece" style="--d:.8s">
+              <path id="planeRoute" class="route" d="M470 300 C548 262 552 150 452 146 S300 44 176 22"/>
+              <g class="plane" opacity="0">
+                <path d="M13 0L-12 -10L-6 0L-12 10Z" class="f-sheet s-ink" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M-6 0H13" class="s-ink" stroke-width="1.5"/>
+                <animateMotion dur="9s" begin="1.4s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#planeRoute"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.1;.86;1" dur="9s" begin="1.4s" repeatCount="indefinite"/>
+              </g>
+            </g>
+          </g>
+
+          <!-- Lagos star -->
+          <g class="layer" data-depth="15">
+            <g class="piece" style="--d:.5s" role="button" tabindex="0" aria-label="Star on Lagos"
+               data-note="L8L is being built in Lagos, Nigeria.">
+              <path filter="url(#paper)" class="f-fuchsia s-ink" stroke-width="2" stroke-linejoin="round"
+                    d="M228 265L232.1 275.3L243.2 276.1L234.7 283.2L237.4 293.9L228 288L218.6 293.9L221.3 283.2L212.8 276.1L223.9 275.3Z"/>
+              <path d="M170 330Q182 302 210 292M202 287L211 292L205 300" fill="none" class="s-ink" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="112" y="356" class="hand-text">Lagos</text>
+            </g>
+          </g>
+
+          <!-- pencil -->
+          <g class="layer" data-depth="17">
+            <g class="piece" style="--d:.35s" role="button" tabindex="0" aria-label="A pencil"
+               data-note="Design thinking: sketch your idea before you build it.">
+              <g transform="translate(34 44) rotate(38)" filter="url(#paper)">
+                <rect x="-30" y="0" width="26" height="26" rx="7" class="f-fuchsia s-ink" stroke-width="2.5"/>
+                <rect x="-8" y="-1" width="12" height="28" class="f-kraft s-ink" stroke-width="2.5"/>
+                <rect x="4" y="0" width="146" height="26" class="f-marigold s-ink" stroke-width="2.5"/>
+                <path d="M8 9H146M8 17H146" class="s-ink" stroke-width="1.5" opacity=".35"/>
+                <path d="M150 0L184 13L150 26Z" class="f-kraft s-ink" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M172 8.5L184 13L172 17.5Z" class="f-ink"/>
+              </g>
+            </g>
+          </g>
+
+          <!-- phone -->
+          <g class="layer" data-depth="19">
+            <g class="piece" style="--d:.45s" role="button" tabindex="0" aria-label="A phone running L8L"
+               data-note="Download L8L once. After that, lessons open with no data.">
+              <g transform="translate(372 290) rotate(7)">
+                <g filter="url(#paper)">
+                  <rect width="132" height="214" rx="20" class="f-sheet s-ink" stroke-width="3"/>
+                  <rect x="11" y="24" width="110" height="162" rx="8" class="f-indigo-soft"/>
+                  <circle cx="66" cy="12" r="3" class="f-ink"/>
+                  <g transform="translate(20 34) scale(0.082)" fill="none" stroke-width="40" stroke-linecap="round" stroke-linejoin="round">
+                    <path class="s-indigo" d="M20 20V155A45 45 0 0 0 65 200H110"/>
+                    <path class="s-fuchsia" d="M208 104A42 42 0 1 1 208 20A42 42 0 1 1 208 104A48 48 0 1 0 208 200A48 48 0 1 0 208 104"/>
+                    <path class="s-indigo" d="M328 20V155A45 45 0 0 0 373 200H418"/>
+                  </g>
+                  <rect x="20" y="60" width="70" height="9" rx="4.5" class="f-fuchsia"/>
+                  <rect x="20" y="77" width="88" height="7" rx="3.5" class="f-ink" opacity=".25"/>
+                  <rect x="20" y="90" width="60" height="7" rx="3.5" class="f-ink" opacity=".25"/>
+                  <rect x="20" y="106" width="42" height="36" rx="6" class="f-leaf"/>
+                  <rect x="68" y="106" width="42" height="36" rx="6" class="f-marigold"/>
+                  <rect x="20" y="149" width="90" height="28" rx="6" class="f-sheet s-ink" stroke-width="1.5"/>
+                  <rect x="28" y="160" width="50" height="6" rx="3" class="f-fuchsia"/>
+                  <rect x="50" y="195" width="32" height="6" rx="3" class="f-ink" opacity=".4"/>
+                </g>
+                <rect x="-18" y="-6" width="58" height="18" class="f-tape" transform="rotate(-32 11 3)"/>
+                <g transform="translate(130 34)" filter="url(#paper)">
+                  <circle r="23" class="f-leaf s-ink" stroke-width="2.5"/>
+                  <path d="M-10 0l7 7 13-14" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+              </g>
+            </g>
+          </g>
+
+          <!-- code brackets -->
+          <g class="layer" data-depth="22">
+            <g class="piece" style="--d:.58s" role="button" tabindex="0" aria-label="Code brackets"
+               data-note="Coding: write the code that makes websites work.">
+              <g transform="translate(30 488) rotate(-8)">
+                <text class="brackets" filter="url(#paper)">&lt;/&gt;</text>
+                <rect x="40" y="-66" width="56" height="16" class="f-tape" transform="rotate(12 68 -58)"/>
+              </g>
+            </g>
+          </g>
+
+          <!-- sparkles -->
+          <g class="layer" data-depth="26">
+            <g class="piece" style="--d:.7s">
+              <use href="#spark" class="f-marigold s-ink" stroke-width="2" transform="translate(42 212)"/>
+              <use href="#spark" class="f-marigold s-ink" stroke-width="2" transform="translate(330 510) scale(.75)"/>
+              <use href="#spark" class="f-fuchsia s-ink" stroke-width="2" transform="translate(546 430) scale(.85)"/>
+            </g>
+          </g>
+        </svg>
+        <figcaption class="collage-note" id="collageNote" aria-live="polite">L8L means Little Africa. Tap the paper pieces to explore.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== AT A GLANCE ===================== -->
+  <section class="glance" aria-label="L8L at a glance">
+    <div class="wrap">
+      <div class="glance-panel torn">
+        <ul class="glance-list">
+          <li><strong>Ages 11 to 19</strong><span>In school or out</span></li>
+          <li><strong>3 months</strong><span>From zero to your own project</span></li>
+          <li><strong>Free lessons</strong><span>Paid extras are optional</span></li>
+          <li><strong>No data needed</strong><span>After one download</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT YOU'LL LEARN ===================== -->
+  <section class="section" id="learn" aria-labelledby="learn-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="learn-title">Three skills. One project you can show off.</h2>
+        <p>The course starts from zero. You don't need to know anything about tech before you begin. Pick a card to see what's inside.</p>
+      </div>
+
+      <div class="skill-tabs" role="tablist" aria-label="What you'll learn" id="skillTabs">
+        <button class="skill-tab c-web" type="button" role="tab" id="skill-tab-1" aria-controls="skill-1" aria-selected="true">
+          <svg class="card-doodle" viewBox="0 0 86 64" aria-hidden="true" filter="url(#wobble)">
+            <rect x="4" y="5" width="78" height="54" rx="7" class="f-sheet s-ink" stroke-width="2.5"/>
+            <path d="M4 18H82" class="s-ink" stroke-width="2.5"/>
+            <circle cx="12" cy="11.5" r="2.4" class="f-fuchsia"/><circle cx="19.5" cy="11.5" r="2.4" class="f-marigold"/><circle cx="27" cy="11.5" r="2.4" class="f-leaf"/>
+            <rect x="12" y="25" width="34" height="9" rx="3" class="f-fuchsia"/>
+            <rect x="12" y="39" width="26" height="13" rx="3" class="f-indigo-soft s-ink" stroke-width="1.5"/>
+            <rect x="44" y="39" width="30" height="13" rx="3" class="f-indigo-soft s-ink" stroke-width="1.5"/>
+          </svg>
+          <span class="card-title">Web design</span>
+          <span class="card-tease">Make pages people enjoy using.</span>
+        </button>
+        <button class="skill-tab c-code" type="button" role="tab" id="skill-tab-2" aria-controls="skill-2" aria-selected="false" tabindex="-1">
+          <svg class="card-doodle" viewBox="0 0 86 64" aria-hidden="true" filter="url(#wobble)">
+            <path d="M26 14L8 32L26 50M60 14L78 32L60 50" fill="none" class="s-ink" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M26 14L8 32L26 50M60 14L78 32L60 50" fill="none" stroke="var(--leaf)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M49 8L37 56" class="s-ink" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+          <span class="card-title">Coding</span>
+          <span class="card-tease">Tell a computer what to do.</span>
+        </button>
+        <button class="skill-tab c-think" type="button" role="tab" id="skill-tab-3" aria-controls="skill-3" aria-selected="false" tabindex="-1">
+          <svg class="card-doodle" viewBox="0 0 86 64" aria-hidden="true" filter="url(#wobble)">
+            <path d="M43 3V9M22 11l4 4M64 11l-4 4M14 29h6M66 29h6" class="s-ink" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="43" cy="29" r="16" class="f-marigold s-ink" stroke-width="2.5"/>
+            <path d="M37 32q6 -8 12 0" fill="none" class="s-ink" stroke-width="2" stroke-linecap="round"/>
+            <rect x="35" y="44" width="16" height="12" rx="3" class="f-sheet s-ink" stroke-width="2.5"/>
+            <path d="M35 50H51" class="s-ink" stroke-width="2"/>
+          </svg>
+          <span class="card-title">Design thinking</span>
+          <span class="card-tease">Solve real problems around you.</span>
+        </button>
+        <button class="skill-tab c-project" type="button" role="tab" id="skill-tab-4" aria-controls="skill-4" aria-selected="false" tabindex="-1">
+          <svg class="card-doodle" viewBox="0 0 86 64" aria-hidden="true" filter="url(#wobble)">
+            <path d="M43 5L50.6 21.8L69 23.6L55.2 36L59.2 54L43 44.8L26.8 54L30.8 36L17 23.6L35.4 21.8Z" class="f-fuchsia s-ink" stroke-width="2.5" stroke-linejoin="round"/>
+            <path d="M10 10l5 3M76 10l-5 3M8 50l6-2M78 50l-6-2" class="s-ink" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <span class="card-title">Your own project</span>
+          <span class="card-tease">Show what you can do.</span>
+        </button>
+      </div>
+
+      <div class="skill-panel" role="tabpanel" id="skill-1" aria-labelledby="skill-tab-1" tabindex="0">
+        <div>
+          <h3>Web design</h3>
+          <p>Plan and style web pages that look good on any phone. You'll learn how people really use a page, so yours are easy to use.</p>
+        </div>
+        <div>
+          <p class="hand">You'll learn</p>
+          <ul class="bits">
+            <li>Layout</li>
+            <li>Colour</li>
+            <li>Fonts</li>
+            <li>How people use a page</li>
+          </ul>
+        </div>
+      </div>
+      <div class="skill-panel" role="tabpanel" id="skill-2" aria-labelledby="skill-tab-2" tabindex="0" hidden>
+        <div>
+          <h3>Coding</h3>
+          <p>Write the code that makes websites work. You tell the computer what to do, and it does it.</p>
+        </div>
+        <div>
+          <p class="hand">How it goes</p>
+          <ol class="path">
+            <li>Start with one line of code</li>
+            <li>Build up, a little at a time</li>
+            <li>Finish with a full page you made yourself</li>
+          </ol>
+        </div>
+      </div>
+      <div class="skill-panel" role="tabpanel" id="skill-3" aria-labelledby="skill-tab-3" tabindex="0" hidden>
+        <div>
+          <h3>Design thinking</h3>
+          <p>A way to solve real problems. You understand the problem first, then you build.</p>
+        </div>
+        <div>
+          <p class="hand">How it goes</p>
+          <ol class="path">
+            <li>Spot a problem around you</li>
+            <li>Ask the people who have it</li>
+            <li>Sketch your ideas</li>
+            <li>Then build</li>
+          </ol>
+        </div>
+      </div>
+      <div class="skill-panel" role="tabpanel" id="skill-4" aria-labelledby="skill-tab-4" tabindex="0" hidden>
+        <div>
+          <h3>Your own project</h3>
+          <p>The course ends with something real that you made. It's yours to keep and to show.</p>
+        </div>
+        <div>
+          <p class="hand">How it goes</p>
+          <ol class="path">
+            <li>Pick coding or design</li>
+            <li>Build a real project</li>
+            <li>Show your family, your school or a future employer</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- try it -->
+      <div class="try" id="try">
+        <div class="try-head">
+          <h3>Try it now: change the code</h3>
+          <p>Tap a yellow box and type your own words or colours. The page changes as you type. In the course you write code like this yourself, starting with one line.</p>
+        </div>
+        <div class="try-grid" id="tryGrid">
+          <div class="code-card">
+            <div class="code-bar">
+              <span>my-page.html</span>
+              <span class="code-tools">
+                <button class="link-btn" type="button" id="tryIdea">Show an example</button>
+                <button class="link-btn" type="button" id="tryReset">Start again</button>
+              </span>
+            </div>
+            <div class="code" role="group" aria-label="Code you can change">
+              <div class="code-line"><span class="tag">&lt;h1</span> style="color: <span class="tok-set"><span class="swatch" data-for="colour" aria-hidden="true"></span><input class="tok" id="tok-colour" data-key="colour" data-kind="colour" type="text" value="deeppink" maxlength="24" placeholder="a colour" aria-label="Heading colour" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done">"<span class="tag">&gt;</span></span></div>
+              <div class="code-line in"><input class="tok" id="tok-heading" data-key="heading" type="text" value="Hello, Lagos!" maxlength="32" placeholder="your heading" aria-label="Heading words" autocomplete="off" spellcheck="false" enterkeyhint="done"></div>
+              <div class="code-line"><span class="tag">&lt;/h1&gt;</span></div>
+              <div class="code-line"><span class="tag">&lt;p&gt;</span><input class="tok" id="tok-para" data-key="para" type="text" value="I'm learning to code." maxlength="70" placeholder="your sentence" aria-label="Paragraph words" autocomplete="off" spellcheck="false" enterkeyhint="done"><span class="tag">&lt;/p&gt;</span></div>
+              <div class="code-line"><span class="tag">&lt;button</span> style="background: <span class="tok-set"><span class="swatch" data-for="bg" aria-hidden="true"></span><input class="tok" id="tok-bg" data-key="bg" data-kind="colour" type="text" value="gold" maxlength="24" placeholder="a colour" aria-label="Button colour" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done">"<span class="tag">&gt;</span></span></div>
+              <div class="code-line in"><input class="tok" id="tok-label" data-key="label" type="text" value="Tap me" maxlength="24" placeholder="button words" aria-label="Button words" autocomplete="off" spellcheck="false" enterkeyhint="done"></div>
+              <div class="code-line"><span class="tag">&lt;/button&gt;</span></div>
+            </div>
+            <p class="code-hint" id="tryHint" role="status" aria-live="polite">A colour can be a name like teal or gold, or a code like #2B2FA0.</p>
+          </div>
+          <div class="preview-card" id="tryPage">
+            <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>Your page</span></div>
+            <div class="preview">
+              <p class="pv-h1" id="pvH" style="color: deeppink">Hello, Lagos!</p>
+              <p class="pv-p" id="pvP">I'm learning to code.</p>
+              <div class="pv-row">
+                <button class="pv-btn" type="button" id="pvBtn" style="background: gold">Tap me</button>
+                <p class="pv-count" id="pvCount" aria-live="polite">Now tap your button.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="sr-only" id="tryStatus" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section class="section" id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="how-title">How L8L works</h2>
+        <p>Made for real life: shared phones, weak network and little data. Tap each step to see it on the phone.</p>
+      </div>
+
+      <div class="how-grid">
+        <div class="how-main">
+          <div class="step-tabs" role="tablist" aria-label="The three steps" id="stepTabs">
+            <button class="step-tab" type="button" role="tab" id="step-tab-1" aria-controls="step-copy-1 screen-1" aria-selected="true">
+              <span class="num" aria-hidden="true">1</span><span>Download it once</span>
+            </button>
+            <button class="step-tab" type="button" role="tab" id="step-tab-2" aria-controls="step-copy-2 screen-2" aria-selected="false" tabindex="-1">
+              <span class="num" aria-hidden="true">2</span><span>Learn anywhere</span>
+            </button>
+            <button class="step-tab" type="button" role="tab" id="step-tab-3" aria-controls="step-copy-3 screen-3" aria-selected="false" tabindex="-1">
+              <span class="num" aria-hidden="true">3</span><span>Build your project</span>
+            </button>
+          </div>
+
+          <div class="step-copy" role="tabpanel" id="step-copy-1" aria-labelledby="step-tab-1">
+            <h3>Download it once</h3>
+            <p>Get L8L free when it launches. This is the only time you need internet. After that, your lessons open with no data, like a downloaded game.</p>
+            <button class="btn btn-ghost" type="button" data-next-step="1">Next: learn anywhere</button>
+          </div>
+          <div class="step-copy" role="tabpanel" id="step-copy-2" aria-labelledby="step-tab-2" hidden>
+            <h3>Learn anywhere</h3>
+            <p>Learn at home, at school or on the bus, at your own pace. The lessons live on your phone.</p>
+            <p class="hand">Turn the data off on the phone and see what happens.</p>
+            <button class="btn btn-ghost" type="button" data-next-step="2">Next: build your project</button>
+          </div>
+          <div class="step-copy" role="tabpanel" id="step-copy-3" aria-labelledby="step-tab-3" hidden>
+            <h3>Build your project</h3>
+            <p>In three months, use what you learned to build a website or a design of your own.</p>
+            <p class="hand">Pick a track on the phone.</p>
+            <a class="btn btn-primary" href="#join">Join the waitlist</a>
+          </div>
+        </div>
+
+        <div class="phone-col">
+          <div class="phone">
+            <div class="phone-screen">
+
+              <div class="screen s-download" role="tabpanel" id="screen-1" aria-labelledby="step-tab-1">
+                <div class="app-tile">
+                  <svg class="l8l on-indigo" viewBox="0 0 438 220" role="img" aria-label="L8L">
+                    <path class="l8l-l" d="M20 20V155A45 45 0 0 0 65 200H110"/>
+                    <path class="l8l-8" d="M208 104A42 42 0 1 1 208 20A42 42 0 1 1 208 104A48 48 0 1 0 208 200A48 48 0 1 0 208 104"/>
+                    <path class="l8l-l" d="M328 20V155A45 45 0 0 0 373 200H418"/>
+                  </svg>
+                </div>
+                <span class="s-heading">L8L</span>
+                <div class="bar" aria-hidden="true"><span></span></div>
+                <p class="s-status" aria-live="polite"><span class="s-doing">Downloading</span><span class="s-done">Saved on your phone</span></p>
+                <button class="mini-btn" type="button" id="dlAgain">Play the download</button>
+              </div>
+
+              <div class="screen s-lessons" role="tabpanel" id="screen-2" aria-labelledby="step-tab-2" hidden>
+                <div class="s-top">
+                  <span class="s-heading">My lessons</span>
+                  <span class="net" id="netPill">Data on</span>
+                </div>
+                <ul class="lesson-list">
+                  <li><span class="dot" style="background: var(--fuchsia)"></span>Web design
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Saved on this phone"><circle cx="12" cy="12" r="10" fill="var(--leaf)"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="var(--sheet)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+                  <li><span class="dot" style="background: var(--leaf)"></span>Coding
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Saved on this phone"><circle cx="12" cy="12" r="10" fill="var(--leaf)"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="var(--sheet)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+                  <li><span class="dot" style="background: var(--marigold)"></span>Design thinking
+                    <svg viewBox="0 0 24 24" role="img" aria-label="Saved on this phone"><circle cx="12" cy="12" r="10" fill="var(--leaf)"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="var(--sheet)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+                </ul>
+                <div class="data-row">
+                  <span id="dataLabel">Mobile data</span>
+                  <button class="switch" type="button" role="switch" aria-checked="true" aria-labelledby="dataLabel" id="dataSwitch"><span class="knob"></span></button>
+                </div>
+                <p class="s-note" id="dataNote" aria-live="polite">Your lessons are saved on this phone.</p>
+              </div>
+
+              <div class="screen s-project" role="tabpanel" id="screen-3" aria-labelledby="step-tab-3" data-track="coding" hidden>
+                <span class="s-heading">My project</span>
+                <p class="s-small" id="trackLabel">Pick a track</p>
+                <div class="track-row" role="group" aria-labelledby="trackLabel">
+                  <button class="track" type="button" aria-pressed="true" data-track="coding">Coding</button>
+                  <button class="track" type="button" aria-pressed="false" data-track="design">Design</button>
+                </div>
+                <div class="project-card">
+                  <svg class="art-coding" viewBox="0 0 86 64" aria-hidden="true">
+                    <rect x="4" y="5" width="78" height="54" rx="7" class="f-sheet s-ink" stroke-width="2.5"/>
+                    <path d="M4 18H82" class="s-ink" stroke-width="2.5"/>
+                    <path d="M34 30l-8 8 8 8M52 30l8 8-8 8" fill="none" class="s-ink" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M46 28l-6 20" class="s-ink" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                  <svg class="art-design" viewBox="0 0 86 64" aria-hidden="true">
+                    <rect x="8" y="6" width="70" height="52" rx="6" class="f-sheet s-ink" stroke-width="2.5"/>
+                    <circle cx="28" cy="26" r="9" class="f-fuchsia s-ink" stroke-width="2"/>
+                    <rect x="44" y="17" width="24" height="18" rx="3" class="f-marigold s-ink" stroke-width="2"/>
+                    <path d="M18 46H68" class="s-ink" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                  <p id="projectOut" aria-live="polite">A website of your own</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <p class="phone-caption">A drawing of the idea. The real app is still being built.</p>
+        </div>
+
+        <div class="how-notes">
+          <aside class="sticky">
+            <h3>No phone?</h3>
+            <p>Use L8L on the web at a cyber café or on any computer. Sign in with your Google account.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COST ===================== -->
+  <section class="section" id="cost" aria-labelledby="cost-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="cost-title">What's free and what's paid</h2>
+        <p>The lessons stay free. The extras are there if you want them.</p>
+      </div>
+
+      <div class="cost-grid">
+        <article class="cost-sheet free">
+          <h3>Free</h3>
+          <ul class="ticks">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="var(--leaf)"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="var(--sheet)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The L8L app</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="var(--leaf)"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="var(--sheet)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Every lesson in web design, coding and design thinking</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="var(--leaf)"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="var(--sheet)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Learning with no data after the first download</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="var(--leaf)"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="var(--sheet)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Building your own project</span></li>
+          </ul>
+        </article>
+        <article class="cost-sheet paid">
+          <h3>Paid extras</h3>
+          <ul class="ticks">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="var(--marigold)" stroke="var(--ink)" stroke-width="1.5"/><path d="M12 7v10M7 12h10" fill="none" stroke="#1D1A4A" stroke-width="2.4" stroke-linecap="round"/></svg><span>Feedback on your work from a real mentor</span></li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="var(--marigold)" stroke="var(--ink)" stroke-width="1.5"/><path d="M12 7v10M7 12h10" fill="none" stroke="#1D1A4A" stroke-width="2.4" stroke-linecap="round"/></svg><span>A certificate at the end</span></li>
+          </ul>
+          <p>Parents can pay for these for their child.</p>
+        </article>
+        <article class="cost-sheet funded">
+          <h3>Funded places</h3>
+          <p style="margin-top: 0">NGOs, schools and funders can pay for access for children who can't afford it, or use tablets that only run L8L with the children they already support.</p>
+          <a class="text-link" href="#join" data-role="">Partner with us</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PILOT ===================== -->
+  <section class="section" id="pilot" aria-labelledby="pilot-title">
+    <div class="wrap pilot-grid">
+      <div class="pilot-copy">
+        <h2 id="pilot-title">We've taught this in a real classroom.</h2>
+        <p>Before building the app, we ran the L8L course for three months in a classroom with computers. 20 students aged 14 to 18 joined, and 18 finished. Half built coding projects. The other half built design projects.</p>
+        <p>Now we're putting the same course on a phone, so it can reach young people in many places at once.</p>
+        <ul class="chips" aria-label="Pilot facts">
+          <li>3 months</li>
+          <li>Ages 14 to 18</li>
+          <li>Coding and design projects</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="seg" role="group" aria-label="Change what the drawing shows">
+          <button class="seg-btn" type="button" aria-pressed="true" data-view="finished">Who finished</button>
+          <button class="seg-btn" type="button" aria-pressed="false" data-view="tracks">What they built</button>
+        </div>
+        <div class="notebook">
+          <svg class="tally" id="tally" viewBox="0 0 400 176" role="img" aria-labelledby="tallyTitle" data-view="finished">
+            <title id="tallyTitle">20 student figures. 18 are filled in because they finished the course: half of them built coding projects and half built design projects. 2 are dotted because they did not finish.</title>
+          </svg>
+          <p class="tally-caption" id="tallyCaption" aria-live="polite">18 of 20 students finished</p>
+          <p class="tally-legend" id="legendFinished">Filled in: finished. Dotted: didn't finish.</p>
+          <p class="tally-legend" id="legendTracks" hidden><span class="key k-coding"></span>Coding project <span class="key k-design" style="margin-left: .8rem"></span>Design project</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHO ===================== -->
+  <section class="section" id="who" aria-labelledby="who-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="who-title">Who L8L is for</h2>
+        <p>We start with young people who are out of school or far from a computer lab. Choose who you are.</p>
+      </div>
+
+      <div class="aud-tabs" role="tablist" aria-label="Choose who you are" id="audTabs">
+        <button class="aud-tab" type="button" role="tab" id="aud-tab-1" aria-controls="aud-1" aria-selected="true">A young person</button>
+        <button class="aud-tab" type="button" role="tab" id="aud-tab-2" aria-controls="aud-2" aria-selected="false" tabindex="-1">A parent</button>
+        <button class="aud-tab" type="button" role="tab" id="aud-tab-3" aria-controls="aud-3" aria-selected="false" tabindex="-1">An NGO, school or funder</button>
+      </div>
+
+      <div class="aud-panel a-young" role="tabpanel" id="aud-1" aria-labelledby="aud-tab-1">
+        <svg class="who-doodle" viewBox="0 0 56 56" aria-hidden="true" filter="url(#wobble)">
+          <circle cx="28" cy="18" r="10" class="f-fuchsia s-ink" stroke-width="2.5"/>
+          <path d="M10 52c0-14 8-20 18-20s18 6 18 20z" class="f-sheet s-ink" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <h3>Young people, 11 to 19</h3>
+          <dl class="facts-dl">
+            <div><dt>Who can join</dt><dd>Anyone aged 11 to 19, in school or out, in a city or a village.</dd></div>
+            <div><dt>What you need</dt><dd>A phone. No computer lab, and no tech knowledge.</dd></div>
+            <div><dt>What it costs</dt><dd>The app and every lesson are free.</dd></div>
+            <div><dt>What you get</dt><dd>Three skills and a project of your own in three months.</dd></div>
+          </dl>
+          <a class="btn btn-primary" href="#join" data-role="A student">Join the waitlist</a>
+        </div>
+      </div>
+
+      <div class="aud-panel a-parent" role="tabpanel" id="aud-2" aria-labelledby="aud-tab-2" hidden>
+        <svg class="who-doodle" viewBox="0 0 56 56" aria-hidden="true" filter="url(#wobble)">
+          <circle cx="20" cy="16" r="9" class="f-indigo s-ink" stroke-width="2.5"/>
+          <circle cx="40" cy="24" r="6.5" class="f-marigold s-ink" stroke-width="2.5"/>
+          <path d="M4 52c0-13 7-19 16-19s16 6 16 19zM30 52c0-10 4-15 10-15s11 5 11 15z" class="f-sheet s-ink" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <h3>Parents</h3>
+          <dl class="facts-dl">
+            <div><dt>What your child does</dt><dd>A 3-month course on a phone: web design, coding and design thinking.</dd></div>
+            <div><dt>What it costs</dt><dd>The app and its lessons are free. If you can, pay for mentor feedback and a certificate for your child.</dd></div>
+            <div><dt>Has it been tested</dt><dd>Yes. We taught the course in a classroom first, and 18 of 20 students finished.</dd></div>
+            <div><dt>Try it first</dt><dd>Some families will get to try the course before it opens to everyone.</dd></div>
+          </dl>
+          <a class="btn btn-primary" href="#join" data-role="A parent">Join the waitlist as a parent</a>
+        </div>
+      </div>
+
+      <div class="aud-panel a-partner" role="tabpanel" id="aud-3" aria-labelledby="aud-tab-3" hidden>
+        <svg class="who-doodle" viewBox="0 0 56 56" aria-hidden="true" filter="url(#wobble)">
+          <rect x="12" y="6" width="32" height="44" rx="6" class="f-sheet s-ink" stroke-width="2.5"/>
+          <rect x="17" y="12" width="22" height="30" rx="3" class="f-leaf"/>
+          <path d="M22 27l4 4 8-8" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <h3>NGOs, schools and funders</h3>
+          <dl class="facts-dl">
+            <div><dt>Who you can reach</dt><dd>Children who are out of school or in government schools.</dd></div>
+            <div><dt>Two ways to work with us</dt><dd>We set up tablets that only run L8L, or you fund access for children who can't afford it.</dd></div>
+            <div><dt>What we've shown</dt><dd>A 3-month classroom pilot with 20 students aged 14 to 18. 18 finished with a project.</dd></div>
+            <div><dt>Where we are now</dt><dd>We're putting the same course on a phone. The app is coming soon.</dd></div>
+          </dl>
+          <a class="btn btn-primary" href="#join" data-role="">Partner with us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== QUESTIONS ===================== -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="faq-title">Questions people ask</h2>
+        <p>Tap a question to open it.</p>
+      </div>
+
+      <div class="faq-grid">
+      <div class="faq-list">
+        <details class="faq">
+          <summary>Is L8L really free?</summary>
+          <p>Yes. The app and every lesson are free. Feedback from a mentor and a certificate are paid extras.</p>
+        </details>
+        <details class="faq">
+          <summary>Do I need data or Wi-Fi?</summary>
+          <p>Only once, to download the app. After that your lessons open with no data.</p>
+        </details>
+        <details class="faq">
+          <summary>What do I need to start?</summary>
+          <p>A phone. The course starts from zero, so you don't need a computer lab or any tech knowledge.</p>
+        </details>
+        <details class="faq">
+          <summary>What if I don't have a phone?</summary>
+          <p>Use L8L on the web at a cyber café or on any computer. You sign in with your Google account.</p>
+        </details>
+        <details class="faq">
+          <summary>How long does the course take?</summary>
+          <p>It's a 3-month course, and you learn at your own pace.</p>
+        </details>
+        <details class="faq">
+          <summary>What will I have at the end?</summary>
+          <p>A project you built yourself: a website or a design. You can also add a certificate, which is a paid extra.</p>
+        </details>
+        <details class="faq">
+          <summary>When can I get L8L?</summary>
+          <p>L8L is coming soon. Join the waitlist and we'll message you when it opens.</p>
+        </details>
+        <details class="faq">
+          <summary>Who makes L8L?</summary>
+          <p>Lustr8lab, a technology company in Lagos, Nigeria. We taught this course in a real classroom before putting it on a phone.</p>
+        </details>
+        <details class="faq">
+          <summary>What does L8L mean?</summary>
+          <p>Little Africa. We're building it for young people across the continent.</p>
+        </details>
+      </div>
+      <aside class="sticky ask">
+        <h3>Still stuck?</h3>
+        <p>Message us on <a href="https://wa.me/2349017767617" target="_blank" rel="noopener" data-whatsapp>WhatsApp</a> at <span class="phone-no" data-phone>+234 901 776 7617</span>, or email <a class="addr" href="mailto:illustratefortechies@gmail.com" data-email>illustratefortechies@gmail.com</a>. We're on <a href="https://www.instagram.com/lustr8lab" target="_blank" rel="noopener">Instagram</a> too.</p>
+      </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== JOIN ===================== -->
+  <section class="section" id="join" aria-labelledby="join-title">
+    <div class="wrap">
+      <div class="join-panel torn">
+        <div class="join-copy">
+          <h2 id="join-title">Join the first L8L class</h2>
+          <p>Tell us who you are. We'll message you when L8L opens, and some families will get to try the course first.</p>
+          <p class="join-ask">We're still building L8L, one idea at a time. Tell us what you'd like to see in it.</p>
+        </div>
+
+        <form class="join-form" id="joinForm" novalidate>
+          <div class="field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" autocapitalize="off" spellcheck="false">
+          </div>
+          <div class="field">
+            <label for="phone">WhatsApp number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" aria-describedby="contactHelp">
+            <p class="field-help" id="contactHelp">Give us an email, a WhatsApp number, or both.</p>
+          </div>
+          <div class="pair">
+            <div class="field">
+              <label for="country">Country</label>
+              <select id="country" name="country" autocomplete="country-name">
+                <option value="">Choose your country</option>
+              </select>
+            </div>
+            <div class="field" id="areaField">
+              <label for="area" id="areaLabel">State or region</label>
+              <select id="area" name="area" disabled>
+                <option value="">Choose a country first</option>
+              </select>
+            </div>
+          </div>
+          <div class="field" id="areaOtherField" hidden>
+            <label for="areaOther" id="areaOtherLabel">Type your state or region</label>
+            <input type="text" id="areaOther" name="areaOther">
+          </div>
+          <div class="field">
+            <label for="role">I am</label>
+            <select id="role" name="role">
+              <option value="">Choose one</option>
+              <option value="A student">A student</option>
+              <option value="A parent">A parent</option>
+              <option value="An NGO">An NGO</option>
+              <option value="A school">A school</option>
+              <option value="A funder">A funder</option>
+            </select>
+          </div>
+          <div class="field" id="orgField" hidden>
+            <label for="org" id="orgLabel">Name of the NGO</label>
+            <input type="text" id="org" name="org" autocomplete="organization">
+          </div>
+          <div class="follow" id="studentFields" hidden>
+            <fieldset class="field">
+              <legend>Date of birth</legend>
+              <div class="dob">
+                <select id="dobDay" name="dobDay" aria-label="Day of birth" autocomplete="bday-day"><option value="">Day</option></select>
+                <select id="dobMonth" name="dobMonth" aria-label="Month of birth" autocomplete="bday-month"><option value="">Month</option></select>
+                <select id="dobYear" name="dobYear" aria-label="Year of birth" autocomplete="bday-year"><option value="">Year</option></select>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label for="school">School <span class="optional">(skip this if you're not in school)</span></label>
+              <input type="text" id="school" name="school">
+            </div>
+            <div class="field">
+              <label for="klass">Class</label>
+              <select id="klass" name="klass">
+                <option value="">Choose your class</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="ideas">What would you like to see in L8L? <span class="optional">(you can skip this)</span></label>
+            <textarea id="ideas" name="ideas" rows="3" maxlength="600" aria-describedby="ideasHelp"></textarea>
+            <p class="field-help" id="ideasHelp">A skill you want to learn, something the app should do, anything at all.</p>
+          </div>
+          <label class="check" id="consentRow" for="consent" hidden>
+            <input type="checkbox" id="consent" name="consent">
+            <span id="consentText">My parent or guardian agrees that I can join the waitlist and share these details.</span>
+          </label>
+          <div class="send">
+            <p class="send-note" id="sendNote">Your answers go into one message, ready to send. Choose how to send it.</p>
+            <div class="result-actions">
+              <a class="btn btn-primary" id="sendWa" href="https://wa.me/2349017767617" target="_blank" rel="noopener" aria-describedby="sendNote">Send on WhatsApp</a>
+              <a class="btn btn-ghost" id="sendMail" href="mailto:illustratefortechies@gmail.com" aria-describedby="sendNote">Send by email</a>
+            </div>
+          </div>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="join-result" id="joinResult" hidden>
+          <h3 id="resultTitle" tabindex="-1">Tap send to finish</h3>
+          <p id="resultText">WhatsApp should now be open with your message typed in. Tap send there and you're on the list.</p>
+          <p class="send-alt">Nothing opened? Try again here, or copy the message below and send it to us yourself.</p>
+          <div class="result-actions">
+            <a class="btn btn-primary" id="waLink" href="https://wa.me/2349017767617" target="_blank" rel="noopener">Open WhatsApp</a>
+            <a class="btn btn-ghost" id="mailLink" href="mailto:illustratefortechies@gmail.com">Open my email</a>
+            <a class="btn btn-ghost" id="gmailLink" href="https://mail.google.com/mail/" target="_blank" rel="noopener" hidden>Open in Gmail</a>
+          </div>
+          <label class="sr-only" for="msgText">Your message</label>
+          <textarea id="msgText" readonly rows="8"></textarea>
+          <div class="send-to">
+            <button class="link-btn" type="button" id="copyMsg">Copy the message</button>
+            <button class="link-btn" type="button" id="copyAddr">Copy our email address</button>
+            <button class="link-btn" type="button" id="editDetails">Change my details</button>
+          </div>
+          <p class="send-alt">WhatsApp <span class="phone-no" data-phone>+234 901 776 7617</span><br>Email <strong class="addr" data-email>illustratefortechies@gmail.com</strong></p>
+          <p class="form-status" id="copyStatus" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="logo" href="#top" aria-label="L8L, back to top">
+          <svg class="l8l" viewBox="0 0 438 220" aria-hidden="true" focusable="false">
+            <path class="l8l-l" pathLength="1" d="M20 20V155A45 45 0 0 0 65 200H110"/>
+            <path class="l8l-8" pathLength="1" d="M208 104A42 42 0 1 1 208 20A42 42 0 1 1 208 104A48 48 0 1 0 208 200A48 48 0 1 0 208 104"/>
+            <path class="l8l-l" pathLength="1" d="M328 20V155A45 45 0 0 0 373 200H418"/>
+          </svg>
+        </a>
+        <p>L8L is made by Lustr8lab. We build technology that helps young Africans learn and create.</p>
+        <div class="made-by">
+          <span>made by</span>
+          <svg class="lustr8" viewBox="0 0 1280.39 322.94" role="img" aria-label="Lustr8lab">
+            <path d="M0 16L0 268A52 52 0 0 0 52 320L196 320A52 52 0 0 0 248 268A52 52 0 0 0 196 216L124 216A20 20 0 0 1 104 196L104 88A16 16 0 0 0 72 88L72 196A52 52 0 0 0 124 248L196 248A20 20 0 0 1 216 268A20 20 0 0 1 196 288L52 288A20 20 0 0 1 32 268L32 16A16 16 0 0 0 0 16Z"/>
+            <path d="M336 320V173.23H363.68V294.84H430.77V320ZM490.11 321.68Q477.95 321.68 468.83 316.12Q459.71 310.56 454.68 300.71Q449.65 290.85 449.65 278.06V216H476.06V275.97Q476.06 287.71 481.83 293.58Q487.6 299.45 498.29 299.45Q510.45 299.45 517.16 291.38Q523.87 283.31 523.87 268.84V216H550.29V320H524.29V306.37H520.52Q518 311.61 511.08 316.65Q504.16 321.68 490.11 321.68ZM622.84 322.94Q602.5 322.94 589.5 314.13Q576.5 305.32 573.77 288.97L598.1 282.68Q599.56 290.02 603.02 294.21Q606.48 298.4 611.62 300.19Q616.76 301.97 622.84 301.97Q632.06 301.97 636.47 298.72Q640.87 295.47 640.87 290.65Q640.87 285.82 636.68 283.2Q632.48 280.58 623.26 278.9L617.39 277.85Q606.48 275.76 597.47 272.09Q588.45 268.42 583 261.92Q577.55 255.42 577.55 245.15Q577.55 229.63 588.87 221.35Q600.19 213.06 618.65 213.06Q636.05 213.06 647.58 220.82Q659.11 228.58 662.68 241.16L638.15 248.71Q636.47 240.74 631.33 237.39Q626.19 234.03 618.65 234.03Q611.1 234.03 607.11 236.65Q603.13 239.27 603.13 243.89Q603.13 248.92 607.32 251.33Q611.52 253.74 618.65 255L624.52 256.05Q636.26 258.15 645.8 261.6Q655.34 265.06 660.9 271.46Q666.45 277.85 666.45 288.76Q666.45 305.11 654.6 314.02Q642.76 322.94 622.84 322.94ZM727.26 320Q716.98 320 710.59 313.6Q704.19 307.21 704.19 296.52V237.81H678.19V216H704.19V183.71H730.61V216H759.13V237.81H730.61V291.9Q730.61 298.19 736.48 298.19H756.61V320ZM783.03 320V216H809.03V227.74H812.81Q815.11 221.45 820.46 218.52Q825.81 215.58 832.94 215.58H845.52V239.06H832.52Q822.45 239.06 815.95 244.41Q809.45 249.76 809.45 260.87V320ZM916.39 322.94Q899.61 322.94 886.72 317.9Q873.82 312.87 866.59 303.33Q859.35 293.79 859.35 280.79V278.27Q859.35 268.21 862.92 261.6Q866.48 255 871.83 251.23Q877.18 247.45 882 245.98V242.21Q877.18 240.53 872.35 236.76Q867.53 232.98 864.49 226.69Q861.45 220.4 861.45 211.6V209.08Q861.45 197.55 868.27 188.85Q875.08 180.15 887.45 175.22Q899.82 170.29 916.39 170.29Q932.95 170.29 945.32 175.22Q957.69 180.15 964.51 188.85Q971.32 197.55 971.32 209.08V211.6Q971.32 220.4 968.28 226.69Q965.24 232.98 960.52 236.76Q955.81 240.53 950.77 242.21V245.98Q955.81 247.45 961.05 251.23Q966.29 255 969.85 261.6Q973.42 268.21 973.42 278.27V280.79Q973.42 293.79 966.19 303.33Q958.95 312.87 946.06 317.9Q933.16 322.94 916.39 322.94ZM916.39 299.03Q930.85 299.03 938.72 293.48Q946.58 287.92 946.58 278.69V277.02Q946.58 267.79 938.93 262.23Q931.27 256.68 916.39 256.68Q901.71 256.68 893.95 262.23Q886.19 267.79 886.19 277.02V278.69Q886.19 287.92 894.06 293.48Q901.92 299.03 916.39 299.03ZM916.39 232.77Q929.81 232.77 937.15 227.95Q944.48 223.13 944.48 214.32V212.65Q944.48 203.84 936.94 199.02Q929.39 194.19 916.39 194.19Q903.39 194.19 895.84 199.02Q888.29 203.84 888.29 212.65V214.32Q888.29 223.13 895.63 227.95Q902.97 232.77 916.39 232.77ZM993.97 320V173.23H1020.39V320ZM1082.03 322.94Q1070.92 322.94 1062.11 319.06Q1053.31 315.18 1048.17 307.73Q1043.03 300.29 1043.03 289.6Q1043.03 278.9 1048.17 271.67Q1053.31 264.44 1062.43 260.77Q1071.55 257.1 1083.29 257.1H1111.81V251.23Q1111.81 243.89 1107.19 239.17Q1102.58 234.45 1092.52 234.45Q1082.66 234.45 1077.84 238.96Q1073.02 243.47 1071.55 250.6L1047.23 242.42Q1049.74 234.45 1055.3 227.85Q1060.85 221.24 1070.19 217.15Q1079.52 213.06 1092.94 213.06Q1113.48 213.06 1125.44 223.34Q1137.39 233.61 1137.39 253.11V291.9Q1137.39 298.19 1143.26 298.19H1151.65V320H1134.03Q1126.27 320 1121.24 316.23Q1116.21 312.45 1116.21 306.16V305.95H1112.23Q1111.39 308.47 1108.45 312.56Q1105.52 316.65 1099.23 319.79Q1092.94 322.94 1082.03 322.94ZM1086.65 301.55Q1097.76 301.55 1104.78 295.36Q1111.81 289.18 1111.81 278.9V276.81H1085.18Q1077.84 276.81 1073.65 279.95Q1069.45 283.1 1069.45 288.76Q1069.45 294.42 1073.85 297.98Q1078.26 301.55 1086.65 301.55ZM1233.42 322.94Q1219.37 322.94 1211.82 318.11Q1204.27 313.29 1200.71 307.42H1196.94V320H1170.94V173.23H1197.35V227.95H1201.13Q1203.44 224.18 1207.31 220.82Q1211.19 217.47 1217.59 215.27Q1223.98 213.06 1233.42 213.06Q1246 213.06 1256.69 219.25Q1267.39 225.44 1273.89 237.39Q1280.39 249.34 1280.39 266.32V269.68Q1280.39 286.66 1273.89 298.61Q1267.39 310.56 1256.69 316.75Q1246 322.94 1233.42 322.94ZM1225.45 299.87Q1237.61 299.87 1245.79 292.01Q1253.97 284.15 1253.97 269.05V266.95Q1253.97 251.85 1245.9 243.99Q1237.82 236.13 1225.45 236.13Q1213.29 236.13 1205.11 243.99Q1196.94 251.85 1196.94 266.95V269.05Q1196.94 284.15 1205.11 292.01Q1213.29 299.87 1225.45 299.87Z"/>
+          </svg>
+        </div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/2349017767617" target="_blank" rel="noopener" data-whatsapp>WhatsApp <span class="phone-no" data-phone>+234 901 776 7617</span></a></li>
+        <li class="mail"><a class="addr" href="mailto:illustratefortechies@gmail.com" data-email>illustratefortechies@gmail.com</a><button class="link-btn" type="button" id="copyAddrFoot">Copy</button></li>
+        <li><a href="https://www.instagram.com/lustr8lab" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="#join">Join the waitlist</a></li>
+      </ul>
+    </div>
+    <p class="form-status" id="footStatus" role="status" aria-live="polite"></p>
+    <p class="copyright">&copy; 2026 Lustr8lab. Made in Lagos, Nigeria.</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  "use strict";
+
+  /* ------- settings you may want to change ------- */
+  const CONTACT_EMAIL = "illustratefortechies@gmail.com";
+  const WHATSAPP_NUMBER = "2349017767617";       // country code first, no plus sign, no spaces
+  const WHATSAPP_SHOWN = "+234 901 776 7617";    // the same number, written for people to read
+
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // the address may break before the @ on a narrow screen, never in the middle of a word
+  $$("[data-email]").forEach(el => {
+    const at = CONTACT_EMAIL.indexOf("@");
+    el.textContent = "";
+    el.append(CONTACT_EMAIL.slice(0, at), document.createElement("wbr"), CONTACT_EMAIL.slice(at));
+  });
+
+  // An email link opens the visitor's own email app, with our address, a subject and the message already filled in.
+  const emailLink = (subject, body) => "mailto:" + CONTACT_EMAIL +
+    "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body.replace(/\n/g, "\r\n"));
+  const EMAIL_OPENED = "Your email app should now be open with your message ready. Tap send there and you're on the list.";
+  $$("a[data-email]").forEach(link => { link.href = "mailto:" + CONTACT_EMAIL; });
+
+  $$("[data-phone]").forEach(el => { el.textContent = WHATSAPP_SHOWN; });
+  $$("[data-whatsapp]").forEach(el => { el.href = "https://wa.me/" + WHATSAPP_NUMBER; });
+
+  /* Copy text. If the browser refuses, select the text so the visitor can copy it by hand. */
+  async function copyText(text, statusEl, okMessage, fallbackEl) {
+    try {
+      await navigator.clipboard.writeText(text);
+      if (statusEl) statusEl.textContent = okMessage;
+    } catch (err) {
+      if (fallbackEl) {
+        if (typeof fallbackEl.select === "function") {
+          fallbackEl.focus();
+          fallbackEl.select();
+        } else {
+          const range = document.createRange();
+          range.selectNodeContents(fallbackEl);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      }
+      if (statusEl) statusEl.textContent = "Copying didn't work here. The text is selected, so you can copy it yourself.";
+    }
+  }
+
+  /* Tabs: one helper for the skill cards, the three steps and the "who are you" buttons. */
+  function initTabs(tablist, onChange) {
+    const tabs = $$('[role="tab"]', tablist);
+    const panelsOf = tab => (tab.getAttribute("aria-controls") || "").split(/\s+/)
+      .map(id => id && document.getElementById(id)).filter(Boolean);
+    function select(index, opts = {}) {
+      tabs.forEach((tab, j) => {
+        const on = j === index;
+        tab.setAttribute("aria-selected", String(on));
+        tab.tabIndex = on ? 0 : -1;
+        panelsOf(tab).forEach(panel => { panel.hidden = !on; });
+      });
+      if (opts.focus) tabs[index].focus();
+      if (onChange) onChange(index, opts);
+    }
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => { select(i, { user: true }); playTap(); });
+      tab.addEventListener("keydown", e => {
+        let next = null;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") next = (i + 1) % tabs.length;
+        else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === "Home") next = 0;
+        else if (e.key === "End") next = tabs.length - 1;
+        if (next !== null) {
+          e.preventDefault();
+          select(next, { focus: true, user: true });
+        }
+      });
+    });
+    return { select };
+  }
+
+  /* ------- 1. Smooth the Africa outline ------- */
+  const AFRICA = [[150,90],[200,70],[250,75],[275,68],[290,95],[330,100],[365,95],[390,105],[400,150],[420,190],[440,230],[470,235],[455,270],[430,310],[420,350],[410,380],[395,420],[360,455],[320,475],[295,465],[280,430],[270,390],[262,340],[250,300],[220,290],[180,285],[140,275],[110,255],[90,225],[95,190],[110,150],[130,115]];
+
+  function smoothClosedPath(pts) {
+    const n = pts.length;
+    let d = "M" + pts[0][0] + " " + pts[0][1];
+    for (let i = 0; i < n; i++) {
+      const p0 = pts[(i - 1 + n) % n], p1 = pts[i], p2 = pts[(i + 1) % n], p3 = pts[(i + 2) % n];
+      const c1x = p1[0] + (p2[0] - p0[0]) / 6, c1y = p1[1] + (p2[1] - p0[1]) / 6;
+      const c2x = p2[0] - (p3[0] - p1[0]) / 6, c2y = p2[1] - (p3[1] - p1[1]) / 6;
+      d += " C" + c1x.toFixed(1) + " " + c1y.toFixed(1) + " " + c2x.toFixed(1) + " " + c2y.toFixed(1) + " " + p2[0] + " " + p2[1];
+    }
+    return d + "Z";
+  }
+  const africaD = smoothClosedPath(AFRICA);
+  $$('[data-shape="africa"]').forEach(el => el.setAttribute("d", africaD));
+
+  /* ------- 2. Collage pieces: land, tap, wiggle ------- */
+  const collage = $("#collage");
+  const note = $("#collageNote");
+  const pieces = $$(".piece", collage);
+
+  pieces.forEach(piece => {
+    piece.addEventListener("animationend", e => {
+      if (e.target !== piece) return;
+      if (e.animationName === "drop") piece.classList.add("landed");
+      if (e.animationName === "wiggle") piece.classList.remove("is-wiggling");
+    });
+  });
+  // make sure everything counts as landed even if an animation event is missed
+  setTimeout(() => pieces.forEach(p => p.classList.add("landed")), 2200);
+
+  function activatePiece(piece) {
+    if (piece.dataset.note) note.textContent = piece.dataset.note;
+    piece.classList.add("landed");
+    piece.classList.remove("is-wiggling");
+    void piece.getBoundingClientRect(); // restart the wiggle
+    piece.classList.add("is-wiggling");
+    playTap();
+  }
+
+  pieces.filter(p => p.dataset.note).forEach(piece => {
+    piece.addEventListener("click", () => activatePiece(piece));
+    piece.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        activatePiece(piece);
+      }
+    });
+  });
+
+  /* ------- 3. Paper layers follow the pointer ------- */
+  const layers = $$(".layer", collage);
+  if (!reduceMotion) {
+    const art = collage.parentElement;
+    art.addEventListener("pointermove", e => {
+      const r = art.getBoundingClientRect();
+      const nx = (e.clientX - r.left) / r.width - 0.5;
+      const ny = (e.clientY - r.top) / r.height - 0.5;
+      layers.forEach(layer => {
+        const depth = Number(layer.dataset.depth) || 0;
+        layer.style.transform = "translate(" + (nx * depth).toFixed(1) + "px, " + (ny * depth).toFixed(1) + "px)";
+      });
+    });
+    art.addEventListener("pointerleave", () => {
+      layers.forEach(layer => { layer.style.transform = ""; });
+    });
+  } else if (typeof collage.pauseAnimations === "function") {
+    collage.pauseAnimations();
+  }
+
+  /* ------- 4. The logo draws itself again when you tap it ------- */
+  $$(".logo").forEach(link => {
+    const svg = $(".l8l", link);
+    if (!svg || reduceMotion) return;
+    const draw = () => {
+      svg.classList.remove("is-drawing");
+      void svg.getBoundingClientRect();
+      svg.classList.add("is-drawing");
+    };
+    svg.addEventListener("animationend", e => {
+      if (e.target === svg.lastElementChild) svg.classList.remove("is-drawing");
+    });
+    link.addEventListener("click", draw);
+    link.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") draw(); });
+  });
+
+  /* ------- 5. What you'll learn: the four cards ------- */
+  initTabs($("#skillTabs"));
+
+  /* ------- 6. Try it: type in the code, watch the page ------- */
+  const tryGrid = $("#tryGrid");
+  const tryPage = $("#tryPage");
+  const tryHint = $("#tryHint");
+  const tryStatus = $("#tryStatus");
+  const pvH = $("#pvH"), pvP = $("#pvP"), pvBtn = $("#pvBtn"), pvCount = $("#pvCount");
+  const toks = $$(".tok");
+  const tokFor = {}, swatchFor = {};
+  toks.forEach(tok => { tokFor[tok.dataset.key] = tok; });
+  $$(".swatch").forEach(sw => { swatchFor[sw.dataset.for] = sw; });
+  const HINT = tryHint.textContent;
+  const PAGE_INK = "#1D1A4A";
+
+  // Ready-made pages for "Show an example". The first one is how the code starts.
+  const IDEAS = [
+    { colour: "deeppink", heading: "Hello, Lagos!", para: "I'm learning to code.", bg: "gold", label: "Tap me" },
+    { colour: "royalblue", heading: "My first web page", para: "I made this on my phone.", bg: "lightgreen", label: "Say hello" },
+    { colour: "seagreen", heading: "Mama Tee's Kitchen", para: "Hot jollof rice, every day.", bg: "orange", label: "Order now" },
+    { colour: "#2B2FA0", heading: "Kano Tech Club", para: "We meet every Saturday.", bg: "skyblue", label: "Join us" },
+    { colour: "tomato", heading: "Hi, I'm Ada", para: "One day I'll build apps.", bg: "#F5B53F", label: "Follow me" }
+  ];
+  let ideaIndex = 0, taps = 0, hintTimer = null;
+
+  // Ask the browser what a typed colour means. Gives back [red, green, blue] as it looks on a white page,
+  // or null when the browser doesn't know the colour.
+  const probe = document.createElement("span");
+  probe.hidden = true;
+  tryGrid.appendChild(probe);
+  function readColour(text) {
+    const value = text.trim();
+    if (!value) return null;
+    if (window.CSS && CSS.supports && !CSS.supports("color", value)) return null;
+    probe.style.color = "";
+    probe.style.color = value;
+    if (!probe.style.color) return null;
+    const computed = getComputedStyle(probe).color;
+    const parts = computed.match(/[\d.]+/g);
+    if (!/^rgb/.test(computed) || !parts || parts.length < 3) return [128, 128, 128];   // a rare colour format: treat it as a middle tone
+    const alpha = parts.length > 3 ? Number(parts[3]) : 1;
+    return parts.slice(0, 3).map(p => Math.round(Number(p) * alpha + 255 * (1 - alpha)));
+  }
+  function brightness(rgb) {
+    const lin = c => { c /= 255; return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); };
+    return 0.2126 * lin(rgb[0]) + 0.7152 * lin(rgb[1]) + 0.0722 * lin(rgb[2]);
+  }
+
+  // Each yellow box is as wide as what's typed in it.
+  const ruler = document.createElement("canvas").getContext("2d");
+  function fit(tok) {
+    const text = tok.value || tok.placeholder || "";
+    const cs = getComputedStyle(tok);
+    const extra = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight) + parseFloat(cs.borderLeftWidth) + parseFloat(cs.borderRightWidth);
+    let width = 0;
+    if (ruler) {
+      ruler.font = "10px serif";
+      ruler.font = cs.fontStyle + " " + cs.fontWeight + " " + cs.fontSize + " " + cs.fontFamily;
+      if (ruler.font !== "10px serif") width = ruler.measureText(text).width;
+    }
+    if (!width) width = Math.max(text.length, 2) * parseFloat(cs.fontSize) * 0.62;   // a fair guess for a code font
+    tok.style.width = Math.ceil(width + extra + 3) + "px";
+  }
+
+  function paintText(key) {
+    const value = tokFor[key].value;
+    if (key === "heading") pvH.textContent = value;
+    else if (key === "para") pvP.textContent = value;
+    else {
+      pvBtn.textContent = value;
+      if (value.trim()) pvBtn.removeAttribute("aria-label");
+      else pvBtn.setAttribute("aria-label", "Your button");
+    }
+  }
+
+  // settle = the visitor has stopped typing. Until then a half-typed colour is left alone, so the page doesn't flicker.
+  function paintColour(key, settle) {
+    const tok = tokFor[key], sw = swatchFor[key];
+    const typed = tok.value.trim();
+    const rgb = readColour(typed);
+    if (rgb) {
+      tok.removeAttribute("aria-invalid");
+      sw.classList.remove("is-unknown");
+      sw.style.setProperty("--sw", typed);
+      if (key === "colour") pvH.style.color = typed;
+      else {
+        pvBtn.style.background = typed;
+        pvBtn.style.color = brightness(rgb) < 0.2 ? "#FFFFFF" : PAGE_INK;   // keep the words readable on a dark button
+      }
+    } else if (settle) {
+      // a real browser ignores a colour it doesn't know and uses its own
+      tok.setAttribute("aria-invalid", "true");
+      sw.classList.add("is-unknown");
+      sw.style.removeProperty("--sw");
+      if (key === "colour") pvH.style.color = PAGE_INK;
+      else { pvBtn.style.background = "#E9E8F2"; pvBtn.style.color = PAGE_INK; }
+    }
+    return rgb;
+  }
+
+  function updateHint() {
+    let message = HINT, warn = false;
+    for (const key of ["colour", "bg"]) {
+      const typed = tokFor[key].value.trim();
+      const rgb = readColour(typed);
+      if (!rgb) {
+        message = typed
+          ? "The browser doesn't know the colour “" + typed + "”, so it used its own. Check the spelling, or try teal."
+          : "A colour box is empty. Type a colour in it, like teal or gold.";
+        warn = true;
+        break;
+      }
+      if (key === "colour" && brightness(rgb) > 0.6) {
+        message = "“" + typed + "” is hard to read on a white page. Try a darker colour, like teal.";
+        warn = true;
+        break;
+      }
+    }
+    if (tryHint.textContent !== message) tryHint.textContent = message;
+    tryHint.classList.toggle("is-warn", warn);
+  }
+
+  function settleColour(key) {
+    clearTimeout(hintTimer);
+    paintColour(key, true);
+    updateHint();
+  }
+
+  function syncTry() {
+    toks.forEach(tok => {
+      fit(tok);
+      if (tok.dataset.kind === "colour") paintColour(tok.dataset.key, true);
+      else paintText(tok.dataset.key);
+    });
+    updateHint();
+  }
+
+  // On a phone the little page is pinned above the code. Never let it cover the box being typed in.
+  const stacked = window.matchMedia("(max-width: 820px)");
+  function keepClear(tok) {
+    if (!stacked.matches || document.activeElement !== tok) return;
+    const cover = tryPage.getBoundingClientRect().bottom + 10;
+    const gap = tok.getBoundingClientRect().top - cover;
+    if (gap >= 0) return;
+    try { window.scrollBy({ top: gap, behavior: "instant" }); }
+    catch (err) { window.scrollBy(0, gap); }
+  }
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", () => {
+      const active = document.activeElement;
+      if (active && active.classList.contains("tok")) keepClear(active);
+    });
+  }
+
+  toks.forEach(tok => {
+    const key = tok.dataset.key;
+    const isColour = tok.dataset.kind === "colour";
+    tok.addEventListener("input", () => {
+      fit(tok);
+      if (!isColour) { paintText(key); return; }
+      clearTimeout(hintTimer);
+      if (paintColour(key, false)) updateHint();
+      else hintTimer = setTimeout(() => settleColour(key), 900);
+    });
+    tok.addEventListener("blur", () => { if (isColour) settleColour(key); });
+    tok.addEventListener("focus", () => {
+      playTap();
+      [60, 350, 700].forEach(ms => setTimeout(() => keepClear(tok), ms));
+    });
+    tok.addEventListener("keydown", e => {
+      if (e.key === "Enter") { e.preventDefault(); tok.blur(); }
+    });
+  });
+
+  function loadIdea(index) {
+    ideaIndex = index;
+    clearTimeout(hintTimer);
+    toks.forEach(tok => { tok.value = IDEAS[index][tok.dataset.key]; });
+    syncTry();
+  }
+  $("#tryIdea").addEventListener("click", () => {
+    loadIdea((ideaIndex + 1) % IDEAS.length);
+    tryStatus.textContent = "A new example is in the code. Change any yellow box to make it yours.";
+    playTap();
+  });
+  $("#tryReset").addEventListener("click", () => {
+    loadIdea(0);
+    taps = 0;
+    pvCount.textContent = "Now tap your button.";
+    tryStatus.textContent = "The code is back to how it started.";
+    playTap();
+  });
+  pvBtn.addEventListener("click", () => {
+    taps += 1;
+    pvCount.textContent = taps === 1 ? "It works! 1 tap." : "It works! " + taps + " taps.";
+    playTap();
+  });
+  syncTry();
+  window.addEventListener("pageshow", syncTry);   // a browser may put typed words back after the page loads
+
+  /* ------- 7. How it works: three steps on a phone ------- */
+  const screenDownload = $("#screen-1");
+  let downloadTimer = null;
+  function playDownload() {
+    if (reduceMotion) return;
+    clearTimeout(downloadTimer);
+    screenDownload.classList.remove("is-running");
+    void screenDownload.getBoundingClientRect();
+    screenDownload.classList.add("is-running");
+    downloadTimer = setTimeout(() => screenDownload.classList.remove("is-running"), 2300);
+  }
+  const steps = initTabs($("#stepTabs"), (index, opts) => {
+    if (index === 0 && opts.user) playDownload();
+  });
+  $$("[data-next-step]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      steps.select(Number(btn.dataset.nextStep), { focus: true, user: true });
+      playTap();
+    });
+  });
+  $("#dlAgain").addEventListener("click", () => { playDownload(); playTap(); });
+
+  const dataSwitch = $("#dataSwitch");
+  const screenLessons = $("#screen-2");
+  const netPill = $("#netPill");
+  const dataNote = $("#dataNote");
+  dataSwitch.addEventListener("click", () => {
+    const on = dataSwitch.getAttribute("aria-checked") !== "true";
+    dataSwitch.setAttribute("aria-checked", String(on));
+    screenLessons.classList.toggle("is-offline", !on);
+    netPill.textContent = on ? "Data on" : "No internet";
+    dataNote.textContent = on ? "Your lessons are saved on this phone." : "Still works. Your lessons open with no data.";
+    playTap();
+  });
+
+  const screenProject = $("#screen-3");
+  const projectOut = $("#projectOut");
+  const trackBtns = $$(".track", screenProject);
+  trackBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      trackBtns.forEach(other => other.setAttribute("aria-pressed", String(other === btn)));
+      screenProject.dataset.track = btn.dataset.track;
+      projectOut.textContent = btn.dataset.track === "coding" ? "A website of your own" : "A design of your own";
+      playTap();
+    });
+  });
+
+  /* ------- 8. Pilot tally: one figure per student ------- */
+  const tally = $("#tally");
+  if (tally) {
+    const NS = "http://www.w3.org/2000/svg";
+    const total = 20, finished = 18, cols = 10;
+    for (let i = 0; i < total; i++) {
+      const col = i % cols, row = Math.floor(i / cols);
+      const cx = 20 + col * 40, cy = 18 + row * 88;
+      const done = i < finished;
+      // half of the students who finished built coding projects, half built design projects
+      const track = i % 2 === 0 ? "coding" : "design";
+      const g = document.createElementNS(NS, "g");
+      g.setAttribute("class", "kid " + (done ? "done " + track : "not-done"));
+      g.setAttribute("filter", "url(#wobble)");
+      const head = document.createElementNS(NS, "circle");
+      head.setAttribute("cx", cx);
+      head.setAttribute("cy", cy);
+      head.setAttribute("r", 9);
+      const body = document.createElementNS(NS, "path");
+      body.setAttribute("d",
+        "M" + (cx - 15) + " " + (cy + 50) +
+        " C" + (cx - 15) + " " + (cy + 24) + " " + (cx - 8) + " " + (cy + 15) + " " + cx + " " + (cy + 15) +
+        " C" + (cx + 8) + " " + (cy + 15) + " " + (cx + 15) + " " + (cy + 24) + " " + (cx + 15) + " " + (cy + 50) + "Z");
+      g.append(head, body);
+      tally.appendChild(g);
+    }
+    const segBtns = $$(".seg-btn");
+    const caption = $("#tallyCaption");
+    const legendFinished = $("#legendFinished");
+    const legendTracks = $("#legendTracks");
+    segBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const view = btn.dataset.view;
+        segBtns.forEach(other => other.setAttribute("aria-pressed", String(other === btn)));
+        tally.dataset.view = view;
+        const tracks = view === "tracks";
+        caption.textContent = tracks ? "Half built coding projects, half built design projects" : "18 of 20 students finished";
+        legendFinished.hidden = tracks;
+        legendTracks.hidden = !tracks;
+        playTap();
+      });
+    });
+  }
+
+  /* ------- 9. Who it's for: the choice also sets "I am" in the waitlist form (the form itself is in part 13) ------- */
+  const form = $("#joinForm");
+  initTabs($("#audTabs"), index => setRole(["A student", "A parent", ""][index]));
+  $$("[data-role]").forEach(link => link.addEventListener("click", () => setRole(link.dataset.role)));
+
+  /* ------- 10. Torn paper edges ------- */
+  $$(".torn").forEach(el => {
+    const steps = 30, pts = [];
+    for (let i = 0; i <= steps; i++) {
+      pts.push((i / steps * 100).toFixed(2) + "% " + (Math.random() * 10).toFixed(1) + "px");
+    }
+    for (let i = steps; i >= 0; i--) {
+      pts.push((i / steps * 100).toFixed(2) + "% calc(100% - " + (Math.random() * 10).toFixed(1) + "px)");
+    }
+    el.style.clipPath = "polygon(" + pts.join(", ") + ")";
+  });
+
+  /* ------- 11. Mobile menu, and the menu shows where you are ------- */
+  const menuBtn = $("#menuToggle");
+  const navLinks = $("#navLinks");
+  function setMenu(open) {
+    menuBtn.setAttribute("aria-expanded", String(open));
+    navLinks.classList.toggle("is-open", open);
+  }
+  menuBtn.addEventListener("click", () => setMenu(menuBtn.getAttribute("aria-expanded") !== "true"));
+  $$("a", navLinks).forEach(a => a.addEventListener("click", () => setMenu(false)));
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && navLinks.classList.contains("is-open")) {
+      setMenu(false);
+      menuBtn.focus();
+    }
+  });
+
+  if ("IntersectionObserver" in window) {
+    const linkFor = new Map($$("a", navLinks).map(a => [a.getAttribute("href").slice(1), a]));
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        linkFor.forEach(a => a.removeAttribute("aria-current"));
+        const current = linkFor.get(entry.target.id);
+        if (current) current.setAttribute("aria-current", "true");
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    ["top", ...linkFor.keys()].forEach(id => {
+      const section = document.getElementById(id);
+      if (section) spy.observe(section);
+    });
+  }
+
+  /* ------- 12. Sound: a quiet piano piece, and one soft tap -------
+     Everything is made in the browser, so the page has no audio files.
+     The music is an original piece written for this page: D major, three beats to the bar, 80 beats a minute.
+     The music plays through the <audio> element. Taps play through a separate route (Web Audio),
+     so a tap can never pause or cut into the music. */
+  const SR = 16000;
+  const MUSIC_LEVEL = 0.12;   // how loud the music is at its loudest point; 1 is as loud as a sound file can go
+  const TAP_LEVEL = 0.07;     // how loud a tap is
+  const ambientEl = $("#ambient-audio");
+  const soundBtn = $("#soundToggle");
+  const ownTrack = !!ambientEl.getAttribute("src");   // true if you have put your own music file on the page
+  let soundOn = false, sounds = null, ready = false;
+  let soundJob = null, soundBusy = false, soundWaiting = false;
+  let audioCtx = null, ambNode = null, tapBuffer = null, tapEl = null;
+  let lastTap = 0;
+
+  /* synth:start */
+  // Makes the music. It uses nothing from outside itself, so a background worker can run it too.
+  function makeSounds(SR, peak) {
+    const TAU = Math.PI * 2;
+    let seed = 20261011;
+    const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647;   // the same small human wobble every time
+
+    // One piano-like note: a few pure tones, the higher ones quieter and quicker to fade, added into `out`.
+    // The ringing runs past the end and comes back in at the start, so the loop has no seam.
+    function strike(out, at, midi, vel) {
+      const n = out.length;
+      const start = Math.max(0, Math.round(at * SR));
+      const f = 440 * Math.pow(2, (midi - 69) / 12);
+      const ring = Math.min(1.3, Math.max(0.3, 1.5 * Math.pow(110 / f, 0.4)));
+      const attack = Math.round(SR * 0.022);                                  // a slow, felted start to each note
+      const tilt = -1.4 - 0.4 * Math.min(1, Math.max(0, (f - 110) / 590));    // how fast the upper tones thin out
+      const count = Math.min(6, Math.max(4, Math.round(1200 / f) + 3));
+      for (let k = 1; k <= count; k++) {
+        const fk = f * k * Math.sqrt(1 + 0.0003 * k * k);
+        if (fk > 5200) break;
+        const tau = ring / (1 + 0.45 * (k - 1));
+        const len = Math.round(tau * 4.2 * SR);
+        const r = Math.exp(-1 / (tau * SR));
+        const w = TAU * fk / SR;
+        const a = 2 * r * Math.cos(w), b = r * r;
+        let y2 = 0, y1 = vel * Math.pow(k, tilt) * Math.sin(w);
+        for (let i = 1; i < len; i++) {
+          let v = y1;
+          if (i < attack) v *= 0.5 - 0.5 * Math.cos(Math.PI * i / attack);
+          else if (len - i < 320) v *= (len - i) / 320;
+          out[(start + i) % n] += v;
+          const y0 = a * y1 - b * y2;
+          y2 = y1;
+          y1 = y0;
+        }
+      }
+    }
+
+    // A small, soft room. Four echoes feed back into themselves, then two more stages smear them together.
+    // It is run twice so its ringing carries across the loop point.
+    function room(dry, wet) {
+      const n = dry.length, out = new Float32Array(n);
+      const size = len => new Float32Array(Math.round(len * SR / 16000));
+      const combs = [405, 431, 463, 492].map(size);
+      const alls = [202, 160].map(size);
+      const ci = [0, 0, 0, 0], damp = [0, 0, 0, 0], ai = [0, 0];
+      for (let pass = 0; pass < 2; pass++) {
+        for (let i = 0; i < n; i++) {
+          const x = dry[i];
+          let s = 0;
+          for (let c = 0; c < 4; c++) {
+            const buf = combs[c], j = ci[c], y = buf[j];
+            damp[c] = y * 0.6 + damp[c] * 0.4;
+            buf[j] = x + damp[c] * 0.86;
+            ci[c] = j + 1 === buf.length ? 0 : j + 1;
+            s += y;
+          }
+          s *= 0.25;
+          for (let p = 0; p < 2; p++) {
+            const buf = alls[p], j = ai[p], y = buf[j];
+            buf[j] = s + y * 0.5;
+            ai[p] = j + 1 === buf.length ? 0 : j + 1;
+            s = y - s;
+          }
+          if (pass === 1) out[i] = x + s * wet;
+        }
+      }
+      return out;
+    }
+
+    /* ---- twelve bars, then the last chord rings out before it starts again ---- */
+    const EIGHTH = 0.375;
+    const LEFT = [                     // left hand: one low note, then five higher ones rocking up and back
+      [50, 57, 62, 66, 62, 57],        // D
+      [47, 59, 62, 66, 62, 59],        // B minor
+      [43, 59, 62, 67, 62, 59],        // G
+      [45, 57, 61, 64, 61, 57],        // A
+      [42, 57, 62, 66, 62, 57],        // D over F sharp
+      [52, 59, 62, 67, 62, 59],        // E minor 7
+      [43, 59, 62, 66, 62, 59],        // G major 7
+      [45, 57, 62, 67, 62, 57],        // A7 sus
+      [47, 59, 62, 66, 71, 66],        // B minor, climbing
+      [43, 59, 62, 67, 71, 67],        // G, climbing
+      [45, 57, 61, 64, 69, 64],        // A, climbing
+      [50, 57, 62, 66]                 // D, left to ring
+    ];
+    const TUNE = [                     // right hand: [bar, beat, note]
+      [0, 0, 78], [1, 0, 76], [1, 2, 74], [2, 0, 71], [3, 0, 73], [3, 2, 76],
+      [4, 0, 78], [4, 2, 81], [5, 0, 79], [6, 0, 78], [6, 1, 76], [6, 2, 74], [7, 0, 76],
+      [8, 0, 74], [8, 2, 78], [9, 0, 71], [9, 2, 74], [10, 0, 76], [10, 2, 73], [11, 0, 74]
+    ];
+    // When each eighth note starts. The last bar and a half slow down, the way a player would at the end.
+    const when = [];
+    for (let j = 0, t = 0.02; j < 72; j++) {
+      when.push(t);
+      t += EIGHTH * (j < 63 ? 1 : 1 + 0.06 * (j - 62));
+    }
+    const dry = new Float32Array(Math.round(30 * SR));
+    LEFT.forEach((bar, b) => bar.forEach((midi, e) => {
+      const vel = (e === 0 ? 0.6 : e === 3 ? 0.46 : 0.4) * (b === 11 ? 0.85 : 1) * (0.94 + 0.12 * rnd());
+      strike(dry, when[b * 6 + e] + (rnd() - 0.5) * 0.012, midi, vel);
+    }));
+    TUNE.forEach(note => {
+      const b = note[0];
+      const vel = (b === 11 ? 0.66 : b > 3 && b < 8 ? 0.78 : 0.72) * (0.95 + 0.1 * rnd());
+      strike(dry, when[b * 6 + note[1] * 2] + 0.008 + (rnd() - 0.5) * 0.01, note[2], vel);
+    });
+    const loop = room(dry, 0.16);
+
+    // Set the loudness. An iPhone ignores a web page's volume setting, so the quietness has to be in the sound itself.
+    let max = 0;
+    for (let i = 0; i < loop.length; i++) {
+      const v = Math.abs(loop[i]);
+      if (v > max) max = v;
+    }
+    for (let i = 0; i < loop.length; i++) loop[i] *= peak / max;
+    return { loop };
+  }
+
+  // A soft tap, like a fingertip on a wooden desk: a short low knock with a breath of air at the start.
+  // It is over in a twentieth of a second, so it reads as a tap, not a note.
+  function makeTap(rate, peak) {
+    const n = Math.round(rate * 0.09);
+    const out = new Float32Array(n);
+    const hissOff = 1 - Math.exp(-2 * Math.PI * 2200 / rate);
+    const rumbleOff = 1 - Math.exp(-2 * Math.PI * 600 / rate);
+    let seed = 7, lp1 = 0, lp2 = 0, hp = 0, phase = 0, max = 0;
+    for (let i = 0; i < n; i++) {
+      const t = i / rate;
+      seed = seed * 16807 % 2147483647;
+      const white = seed / 1073741823.5 - 1;
+      lp1 += (white - lp1) * hissOff;
+      lp2 += (lp1 - lp2) * hissOff;
+      hp += (lp2 - hp) * rumbleOff;
+      const air = (lp2 - hp) * Math.exp(-t / 0.0035) * 3.5;
+      phase += 2 * Math.PI * (440 + 160 * Math.exp(-t / 0.009)) / rate;   // the knock drops a little as it fades, like wood
+      const knock = Math.sin(phase) * Math.exp(-t / 0.011);
+      out[i] = (knock + air) * Math.min(1, t / 0.001);
+      if (Math.abs(out[i]) > max) max = Math.abs(out[i]);
+    }
+    const tail = Math.round(rate * 0.01);
+    for (let i = 0; i < n; i++) {
+      out[i] *= peak / max;
+      if (i >= n - tail) out[i] *= (n - i) / tail;
+    }
+    return out;
+  }
+
+  // Pack a sound as a WAV file inside a data: address, which an <audio> element can play.
+  function wavAddress(samples, SR) {
+    const n = samples.length;
+    const buf = new ArrayBuffer(44 + n * 2);
+    const v = new DataView(buf);
+    const ws = (o, s) => { for (let i = 0; i < s.length; i++) v.setUint8(o + i, s.charCodeAt(i)); };
+    ws(0, "RIFF"); v.setUint32(4, 36 + n * 2, true); ws(8, "WAVE");
+    ws(12, "fmt "); v.setUint32(16, 16, true); v.setUint16(20, 1, true); v.setUint16(22, 1, true);
+    v.setUint32(24, SR, true); v.setUint32(28, SR * 2, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true);
+    ws(36, "data"); v.setUint32(40, n * 2, true);
+    for (let i = 0; i < n; i++) {
+      const s = Math.max(-1, Math.min(1, samples[i]));
+      v.setInt16(44 + i * 2, s < 0 ? s * 0x8000 : s * 0x7fff, true);
+    }
+    const bytes = new Uint8Array(buf);
+    let bin = "";
+    for (let i = 0; i < bytes.length; i += 0x8000) {
+      bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    }
+    return "data:audio/wav;base64," + btoa(bin);
+  }
+  /* synth:end */
+
+  // Making the music takes a moment, so a background worker does it just after the page loads and the page never stalls.
+  // Only a browser with no workers makes it on the spot, when sound is turned on.
+  function warmSounds() {
+    if (sounds || soundJob || !window.Worker || !window.Blob || !window.URL) return;
+    const finish = made => {
+      soundBusy = false;
+      if (made && !sounds) sounds = made;
+      if (soundWaiting) {
+        soundWaiting = false;
+        if (soundOn) { prepareSound(); startAmbient(); }
+      }
+    };
+    try {
+      const code = makeSounds.toString() + "\n" + wavAddress.toString() +
+        "\nonmessage = function (e) { var made = makeSounds(e.data.rate, e.data.peak); made.address = wavAddress(made.loop, e.data.rate); postMessage(made); };";
+      const address = URL.createObjectURL(new Blob([code], { type: "text/javascript" }));
+      const close = () => { soundJob.terminate(); URL.revokeObjectURL(address); };
+      soundJob = new Worker(address);
+      soundBusy = true;
+      soundJob.onmessage = e => { close(); finish(e.data); };
+      soundJob.onerror = e => { e.preventDefault(); close(); finish(null); };
+      soundJob.postMessage({ rate: SR, peak: MUSIC_LEVEL });
+    } catch (err) {
+      soundBusy = false;
+    }
+  }
+  setTimeout(warmSounds, 250);
+
+  function prepareSound() {
+    if (ready) return;
+    if (!sounds) {
+      sounds = makeSounds(SR, MUSIC_LEVEL);
+      sounds.address = wavAddress(sounds.loop, SR);
+    }
+    if (!ownTrack) ambientEl.src = sounds.address;
+    ready = true;
+  }
+
+  // The route taps use. It has to be opened by a tap on the page, which is why it happens when sound is turned on.
+  function openTapRoute() {
+    try {
+      const Ctx = window.AudioContext || window.webkitAudioContext;
+      if (!audioCtx && Ctx) audioCtx = new Ctx();
+      if (audioCtx && audioCtx.state === "suspended") audioCtx.resume();
+      if (audioCtx && !tapBuffer) {
+        const samples = makeTap(audioCtx.sampleRate, TAP_LEVEL);
+        tapBuffer = audioCtx.createBuffer(1, samples.length, audioCtx.sampleRate);
+        tapBuffer.getChannelData(0).set(samples);
+      }
+    } catch (err) {
+      audioCtx = null;
+    }
+    if (!audioCtx && !tapEl) {   // a very old browser: fall back to a second <audio> element
+      tapEl = new Audio();
+      tapEl.src = wavAddress(makeTap(SR, TAP_LEVEL), SR);
+    }
+  }
+
+  function stopAmbient() {
+    ambientEl.pause();
+    if (ambNode) { try { ambNode.stop(); } catch (err) {} ambNode = null; }
+  }
+
+  // The music always starts from the top, where it is at its quietest, so it never cuts in halfway through a note.
+  async function startAmbient() {
+    try { ambientEl.currentTime = 0; } catch (err) {}
+    try {
+      await ambientEl.play();
+    } catch (err) {
+      // the browser refused the <audio> element: play the same music through the tap route instead
+      if (!ambNode && audioCtx && sounds) {
+        try {
+          const b = audioCtx.createBuffer(1, sounds.loop.length, SR);
+          b.getChannelData(0).set(sounds.loop);
+          ambNode = audioCtx.createBufferSource();
+          ambNode.buffer = b;
+          ambNode.loop = true;
+          ambNode.connect(audioCtx.destination);
+          ambNode.start();
+        } catch (err2) { ambNode = null; }
+      }
+    }
+    if (!soundOn) stopAmbient(); // turned off while starting
+  }
+
+  function setSound(on) {
+    soundOn = on;
+    soundBtn.setAttribute("aria-pressed", String(on));
+    if (!on) {
+      soundWaiting = false;
+      stopAmbient();
+      return;
+    }
+    openTapRoute();
+    if (!sounds) warmSounds();
+    if (!sounds && soundBusy) {
+      // The worker is still making the music. A browser only lets a page start sound from a tap,
+      // so this tap plays a moment of silence to get that permission, and the music starts when it is ready.
+      soundWaiting = true;
+      if (!ownTrack) {
+        ambientEl.src = wavAddress(new Float32Array(800), SR);
+        const primed = ambientEl.play();
+        if (primed && primed.catch) primed.catch(() => {});
+      }
+      return;
+    }
+    prepareSound();
+    startAmbient();
+  }
+
+  function playTap() {
+    if (!soundOn) return;
+    const now = Date.now();
+    if (now - lastTap < 80) return;   // a burst of taps plays one, not a pile of them
+    lastTap = now;
+    if (audioCtx && tapBuffer) {
+      try {
+        if (audioCtx.state === "suspended") audioCtx.resume();
+        const src = audioCtx.createBufferSource();
+        src.buffer = tapBuffer;
+        src.playbackRate.value = 0.94 + Math.random() * 0.12;   // no two taps quite the same
+        src.connect(audioCtx.destination);
+        src.start();
+      } catch (err) {}
+      return;
+    }
+    if (tapEl) {
+      const started = tapEl.cloneNode().play();
+      if (started && started.catch) started.catch(() => {});
+    }
+  }
+
+  soundBtn.addEventListener("click", () => setSound(!soundOn));
+  $$(".faq summary").forEach(summary => summary.addEventListener("click", playTap));
+  document.addEventListener("visibilitychange", () => {
+    if (!soundOn || !ready) return;
+    if (document.hidden) stopAmbient();
+    else startAmbient();
+  });
+
+  /* ------- 13. Waitlist form -------
+     This page cannot send anything by itself. It checks the answers, writes them into one message, and opens
+     WhatsApp or the visitor's email app with that message ready. The visitor presses send there. */
+
+  // Every African country: [name, what it calls its areas, its school classes (a key into CLASSES), its areas].
+  // To fix a spelling or add an area, edit the list here. Areas are sorted A to Z when they are shown.
+  const PLACES = [
+    ["Algeria", "Province", "DZ", "Adrar|Aflou|Aïn Defla|Aïn Oussera|Aïn Témouchent|Algiers|Annaba|Barika|Batna|Béchar|Béjaïa|Béni Abbès|Bir El Ater|Biskra|Blida|Bordj Badji Mokhtar|Bordj Bou Arréridj|Bouïra|Boumerdès|Bousaâda|Chlef|Constantine|Djanet|Djelfa|El Abiodh Sidi Cheikh|El Aricha|El Bayadh|El Kantara|El M'Ghair|El Menia|El Oued|El Tarf|Ghardaïa|Guelma|Illizi|In Guezzam|In Salah|Jijel|Khenchela|Ksar Chellala|Ksar El Boukhari|Laghouat|Mascara|Médéa|Messaad|Mila|Mostaganem|M'Sila|Naâma|Oran|Ouargla|Ouled Djellal|Oum El Bouaghi|Relizane|Saïda|Sétif|Sidi Bel Abbès|Skikda|Souk Ahras|Tamanrasset|Tébessa|Tiaret|Timimoun|Tindouf|Tipaza|Tissemsilt|Tizi Ouzou|Tlemcen|Touggourt"],
+    ["Angola", "Province", "PT_CLASSE", "Bengo|Benguela|Bié|Cabinda|Cuando|Cuanza Norte|Cuanza Sul|Cubango|Cunene|Huambo|Huíla|Icolo e Bengo|Luanda|Lunda Norte|Lunda Sul|Malanje|Moxico|Moxico Leste|Namibe|Uíge|Zaire"],
+    ["Benin", "Department", "FR", "Alibori|Atacora|Atlantique|Borgou|Collines|Couffo|Donga|Littoral|Mono|Ouémé|Plateau|Zou"],
+    ["Botswana", "District", "F1_5", "Central|Chobe|Francistown|Gaborone|Ghanzi|Jwaneng|Kgalagadi|Kgatleng|Kweneng|Lobatse|North-East|North-West|Selebi-Phikwe|South-East|Southern|Sowa Town"],
+    ["Burkina Faso", "Region", "FR", "Bankui (Boucle du Mouhoun)|Djôrô (Sud-Ouest)|Goulmou (Est)|Guiriko (Hauts-Bassins)|Kadiogo (Centre)|Kuilsé (Centre-Nord)|Liptako (Sahel)|Nakambé (Centre-Est)|Nando (Centre-Ouest)|Nazinon (Centre-Sud)|Oubri (Plateau-Central)|Sirba|Soum|Sourou|Tannounyan (Cascades)|Tapoa|Yaadga (Nord)"],
+    ["Burundi", "Province", "BI", "Buhumuza|Bujumbura|Burunga|Butanyerera|Gitega"],
+    ["Cabo Verde", "Island", "PT_ANO", "Boa Vista|Brava|Fogo|Maio|Sal|Santiago|Santo Antão|São Nicolau|São Vicente"],
+    ["Cameroon", "Region", "CM", "Adamawa|Centre|East|Far North|Littoral|North|Northwest|South|Southwest|West"],
+    ["Central African Republic", "Prefecture", "FR", "Bamingui-Bangoran|Bangui|Basse-Kotto|Haute-Kotto|Haut-Mbomou|Kémo|Lim-Pendé|Lobaye|Mambéré|Mambéré-Kadéï|Mbomou|Nana-Grébizi|Nana-Mambéré|Ombella-M'Poko|Ouaka|Ouham|Ouham-Fafa|Ouham-Pendé|Sangha-Mbaéré|Vakaga"],
+    ["Chad", "Province", "FR", "Bahr el Gazel|Batha|Borkou|Chari-Baguirmi|Ennedi-Est|Ennedi-Ouest|Guéra|Hadjer-Lamis|Kanem|Lac|Logone Occidental|Logone Oriental|Mandoul|Mayo-Kebbi Est|Mayo-Kebbi Ouest|Moyen-Chari|N'Djamena|Ouaddaï|Salamat|Sila|Tandjilé|Tibesti|Wadi Fira"],
+    ["Comoros", "Island", "FR", "Anjouan|Grande Comore|Mohéli"],
+    ["Congo (Brazzaville)", "Department", "FR", "Bouenza|Brazzaville|Congo-Oubangui|Cuvette|Cuvette-Ouest|Djoué-Léfini|Kouilou|Lékoumou|Likouala|Niari|Nkéni-Alima|Plateaux|Pointe-Noire|Pool|Sangha"],
+    ["Côte d'Ivoire", "District", "FR", "Abidjan|Bas-Sassandra|Comoé|Denguélé|Gôh-Djiboua|Lacs|Lagunes|Montagnes|Sassandra-Marahoué|Savanes|Vallée du Bandama|Woroba|Yamoussoukro|Zanzan"],
+    ["Djibouti", "Region", "DJ", "Ali Sabieh|Arta|Dikhil|Djibouti City|Obock|Tadjourah"],
+    ["DR Congo", "Province", "CD", "Bas-Uélé|Équateur|Haut-Katanga|Haut-Lomami|Haut-Uélé|Ituri|Kasaï|Kasaï-Central|Kasaï-Oriental|Kinshasa|Kongo-Central|Kwango|Kwilu|Lomami|Lualaba|Mai-Ndombe|Maniema|Mongala|Nord-Kivu|Nord-Ubangi|Sankuru|Sud-Kivu|Sud-Ubangi|Tanganyika|Tshopo|Tshuapa"],
+    ["Egypt", "Governorate", "EG", "Alexandria|Aswan|Asyut|Beheira|Beni Suef|Cairo|Dakahlia|Damietta|Faiyum|Gharbia|Giza|Ismailia|Kafr El Sheikh|Luxor|Matrouh|Minya|Monufia|New Valley|North Sinai|Port Said|Qalyubia|Qena|Red Sea|Sharqia|Sohag|South Sinai|Suez"],
+    ["Equatorial Guinea", "Province", "GQ", "Annobón|Bioko Norte|Bioko Sur|Centro Sur|Djibloho|Kié-Ntem|Litoral|Wele-Nzas"],
+    ["Eritrea", "Region", "G6_12", "Anseba|Debub|Gash-Barka|Maekel|Northern Red Sea|Southern Red Sea"],
+    ["Eswatini", "Region", "F1_5", "Hhohho|Lubombo|Manzini|Shiselweni"],
+    ["Ethiopia", "Region", "G7_12", "Addis Ababa|Afar|Amhara|Benishangul-Gumuz|Central Ethiopia|Dire Dawa|Gambela|Harari|Oromia|Sidama|Somali|South Ethiopia|South West Ethiopia|Tigray"],
+    ["Gabon", "Province", "FR", "Estuaire|Haut-Ogooué|Moyen-Ogooué|Ngounié|Nyanga|Ogooué-Ivindo|Ogooué-Lolo|Ogooué-Maritime|Woleu-Ntem"],
+    ["Gambia", "Region", "G7_12", "Banjul|Central River|Kanifing|Lower River|North Bank|Upper River|West Coast"],
+    ["Ghana", "Region", "GH", "Ahafo|Ashanti|Bono|Bono East|Central|Eastern|Greater Accra|North East|Northern|Oti|Savannah|Upper East|Upper West|Volta|Western|Western North"],
+    ["Guinea", "Region", "GN", "Boké|Conakry|Faranah|Kankan|Kindia|Labé|Mamou|Nzérékoré"],
+    ["Guinea-Bissau", "Region", "PT_ANO", "Bafatá|Biombo|Bissau|Bolama|Cacheu|Gabú|Oio|Quinara|Tombali"],
+    ["Kenya", "County", "KE", "Baringo|Bomet|Bungoma|Busia|Elgeyo-Marakwet|Embu|Garissa|Homa Bay|Isiolo|Kajiado|Kakamega|Kericho|Kiambu|Kilifi|Kirinyaga|Kisii|Kisumu|Kitui|Kwale|Laikipia|Lamu|Machakos|Makueni|Mandera|Marsabit|Meru|Migori|Mombasa|Murang'a|Nairobi|Nakuru|Nandi|Narok|Nyamira|Nyandarua|Nyeri|Samburu|Siaya|Taita-Taveta|Tana River|Tharaka-Nithi|Trans Nzoia|Turkana|Uasin Gishu|Vihiga|Wajir|West Pokot"],
+    ["Lesotho", "District", "G8_12", "Berea|Butha-Buthe|Leribe|Mafeteng|Maseru|Mohale's Hoek|Mokhotlong|Qacha's Nek|Quthing|Thaba-Tseka"],
+    ["Liberia", "County", "G7_12", "Bomi|Bong|Gbarpolu|Grand Bassa|Grand Cape Mount|Grand Gedeh|Grand Kru|Lofa|Margibi|Maryland|Montserrado|Nimba|River Gee|Rivercess|Sinoe"],
+    ["Libya", "District", "LY", "Al Wahat|Benghazi|Butnan|Derna|Ghat|Jabal al Akhdar|Jabal al Gharbi|Jafara|Jufra|Kufra|Marj|Misrata|Murqub|Murzuq|Nalut|Nuqat al Khams|Sabha|Sirte|Tripoli|Wadi al Hayaa|Wadi al Shatii|Zawiya"],
+    ["Madagascar", "Region", "FR", "Alaotra-Mangoro|Ambatosoa|Amoron'i Mania|Analamanga|Analanjirofo|Androy|Anosy|Atsimo-Andrefana|Atsimo-Atsinanana|Atsinanana|Betsiboka|Boeny|Bongolava|Diana|Fitovinany|Haute Matsiatra|Ihorombe|Itasy|Melaky|Menabe|Sava|Sofia|Vakinankaratra|Vatovavy"],
+    ["Malawi", "District", "F1_4", "Balaka|Blantyre|Chikwawa|Chiradzulu|Chitipa|Dedza|Dowa|Karonga|Kasungu|Likoma|Lilongwe|Machinga|Mangochi|Mchinji|Mulanje|Mwanza|Mzimba|Neno|Nkhata Bay|Nkhotakota|Nsanje|Ntcheu|Ntchisi|Phalombe|Rumphi|Salima|Thyolo|Zomba"],
+    ["Mali", "Region", "ML", "Bamako|Bandiagara|Bougouni|Dioïla|Douentza|Gao|Kayes|Kidal|Kita|Koulikoro|Koutiala|Ménaka|Mopti|Nara|Nioro|San|Ségou|Sikasso|Taoudénit|Tombouctou"],
+    ["Mauritania", "Region", "MR", "Adrar|Assaba|Brakna|Dakhlet Nouadhibou|Gorgol|Guidimaka|Hodh Ech Chargui|Hodh El Gharbi|Inchiri|Nouakchott-Nord|Nouakchott-Ouest|Nouakchott-Sud|Tagant|Tiris Zemmour|Trarza"],
+    ["Mauritius", "District", "G7_13", "Black River|Flacq|Grand Port|Moka|Pamplemousses|Plaines Wilhems|Port Louis|Rivière du Rempart|Rodrigues|Savanne"],
+    ["Morocco", "Region", "MA", "Béni Mellal-Khénifra|Casablanca-Settat|Dakhla-Oued Ed-Dahab|Drâa-Tafilalet|Fès-Meknès|Guelmim-Oued Noun|Laâyoune-Sakia El Hamra|Marrakech-Safi|Oriental|Rabat-Salé-Kénitra|Souss-Massa|Tanger-Tétouan-Al Hoceïma"],
+    ["Mozambique", "Province", "PT_CLASSE", "Cabo Delgado|Gaza|Inhambane|Manica|Maputo City|Maputo Province|Nampula|Niassa|Sofala|Tete|Zambézia"],
+    ["Namibia", "Region", "G8_12", "Erongo|Hardap|Karas|Kavango East|Kavango West|Khomas|Kunene|Ohangwena|Omaheke|Omusati|Oshana|Oshikoto|Otjozondjupa|Zambezi"],
+    ["Niger", "Region", "FR", "Agadez|Diffa|Dosso|Maradi|Niamey|Tahoua|Tillabéri|Zinder"],
+    ["Nigeria", "State", "NG", "Abia|Abuja (FCT)|Adamawa|Akwa Ibom|Anambra|Bauchi|Bayelsa|Benue|Borno|Cross River|Delta|Ebonyi|Edo|Ekiti|Enugu|Gombe|Imo|Jigawa|Kaduna|Kano|Katsina|Kebbi|Kogi|Kwara|Lagos|Nasarawa|Niger|Ogun|Ondo|Osun|Oyo|Plateau|Rivers|Sokoto|Taraba|Yobe|Zamfara"],
+    ["Rwanda", "Province", "S1_6", "Eastern Province|Kigali|Northern Province|Southern Province|Western Province"],
+    ["São Tomé and Príncipe", "District", "PT_CLASSE", "Água Grande|Cantagalo|Caué|Lembá|Lobata|Mé-Zóchi|Príncipe"],
+    ["Senegal", "Region", "FR", "Dakar|Diourbel|Fatick|Kaffrine|Kaolack|Kédougou|Kolda|Louga|Matam|Saint-Louis|Sédhiou|Tambacounda|Thiès|Ziguinchor"],
+    ["Seychelles", "Island", "S1_5", "La Digue|Mahé|Outer Islands|Praslin"],
+    ["Sierra Leone", "Province", "SL", "Eastern Province|North West Province|Northern Province|Southern Province|Western Area (Freetown)"],
+    ["Somalia", "Region", "F1_4", "Awdal|Bakool|Banaadir|Bari|Bay|Galguduud|Gedo|Hiiraan|Lower Juba|Lower Shabelle|Middle Juba|Middle Shabelle|Mudug|Nugaal|Sanaag|Sool|Togdheer|Woqooyi Galbeed"],
+    ["South Africa", "Province", "G7_12", "Eastern Cape|Free State|Gauteng|KwaZulu-Natal|Limpopo|Mpumalanga|North West|Northern Cape|Western Cape"],
+    ["South Sudan", "State", "SS", "Abyei|Central Equatoria|Eastern Equatoria|Greater Pibor|Jonglei|Lakes|Northern Bahr el Ghazal|Ruweng|Unity|Upper Nile|Warrap|Western Bahr el Ghazal|Western Equatoria"],
+    ["Sudan", "State", "SD", "Blue Nile|Central Darfur|East Darfur|Gedaref|Gezira|Kassala|Khartoum|North Darfur|North Kordofan|Northern|Red Sea|River Nile|Sennar|South Darfur|South Kordofan|West Darfur|West Kordofan|White Nile"],
+    ["Tanzania", "Region", "F1_6", "Arusha|Dar es Salaam|Dodoma|Geita|Iringa|Kagera|Katavi|Kigoma|Kilimanjaro|Lindi|Manyara|Mara|Mbeya|Morogoro|Mtwara|Mwanza|Njombe|Pemba North|Pemba South|Pwani|Rukwa|Ruvuma|Shinyanga|Simiyu|Singida|Songwe|Tabora|Tanga|Unguja North|Unguja South|Zanzibar Urban West"],
+    ["Togo", "Region", "FR", "Centrale|Kara|Maritime (Lomé)|Plateaux|Savanes"],
+    ["Tunisia", "Governorate", "TN", "Ariana|Béja|Ben Arous|Bizerte|Gabès|Gafsa|Jendouba|Kairouan|Kasserine|Kébili|Kef|Mahdia|Manouba|Médenine|Monastir|Nabeul|Sfax|Sidi Bouzid|Siliana|Sousse|Tataouine|Tozeur|Tunis|Zaghouan"],
+    ["Uganda", "Region", "S1_6", "Central Region|Eastern Region|Kampala|Northern Region|Western Region"],
+    ["Zambia", "Province", "ZM", "Central|Copperbelt|Eastern|Luapula|Lusaka|Muchinga|North-Western|Northern|Southern|Western"],
+    ["Zimbabwe", "Province", "F1_6", "Bulawayo|Harare|Manicaland|Mashonaland Central|Mashonaland East|Mashonaland West|Masvingo|Matabeleland North|Matabeleland South|Midlands"]
+  ];
+
+  // What each country calls the classes from the start of junior secondary to the end of senior secondary.
+  const span = (word, from, to) => Array.from({ length: to - from + 1 }, (_, i) => word + (from + i));
+  const FRENCH = ["6ème", "5ème", "4ème", "3ème", "Seconde", "Première", "Terminale"];
+  const CLASSES = {
+    NG: ["JSS1", "JSS2", "JSS3", "SS1", "SS2", "SS3"],
+    GH: ["JHS 1", "JHS 2", "JHS 3", "SHS 1", "SHS 2", "SHS 3"],
+    SL: ["JSS 1", "JSS 2", "JSS 3", "SSS 1", "SSS 2", "SSS 3"],
+    KE: span("Grade ", 7, 12).concat("Form 3", "Form 4"),
+    ZM: span("Form ", 1, 4).concat(span("Grade ", 9, 12)),
+    G6_12: span("Grade ", 6, 12),
+    G7_12: span("Grade ", 7, 12),
+    G7_13: span("Grade ", 7, 13),
+    G8_12: span("Grade ", 8, 12),
+    F1_4: span("Form ", 1, 4),
+    F1_5: span("Form ", 1, 5),
+    F1_6: span("Form ", 1, 6),
+    S1_5: span("S", 1, 5),
+    S1_6: span("S", 1, 6),
+    SS: span("Senior ", 1, 4),
+    FR: FRENCH,
+    CM: span("Form ", 1, 5).concat("Lower Sixth", "Upper Sixth", FRENCH),
+    ML: ["7ème année", "8ème année", "9ème année", "10ème année", "11ème année", "Terminale"],
+    GN: ["7ème année", "8ème année", "9ème année", "10ème année", "11ème année", "12ème année", "Terminale"],
+    DJ: ["6ème année", "7ème année", "8ème année", "9ème année", "Seconde", "Première", "Terminale"],
+    BI: ["7ème année", "8ème année", "9ème année", "1ère post-fondamentale", "2ème post-fondamentale", "3ème post-fondamentale"],
+    CD: ["7ème année (éducation de base)", "8ème année (éducation de base)", "1ère des humanités", "2ème des humanités", "3ème des humanités", "4ème des humanités"],
+    MR: span("", 1, 7).map(n => n + "AS"),
+    MA: ["1ère année collège", "2ème année collège", "3ème année collège", "Tronc commun", "1ère année Bac", "2ème année Bac"],
+    DZ: ["1AM", "2AM", "3AM", "4AM", "1AS", "2AS", "3AS"],
+    TN: ["7ème année de base", "8ème année de base", "9ème année de base", "1ère année secondaire", "2ème année secondaire", "3ème année secondaire", "4ème année secondaire"],
+    EG: ["Preparatory 1", "Preparatory 2", "Preparatory 3", "Secondary 1", "Secondary 2", "Secondary 3"],
+    LY: ["Grade 7", "Grade 8", "Grade 9", "Secondary 1", "Secondary 2", "Secondary 3"],
+    SD: ["Intermediate 1", "Intermediate 2", "Intermediate 3", "Secondary 1", "Secondary 2", "Secondary 3"],
+    PT_CLASSE: span("", 7, 12).map(n => n + "ª classe"),
+    PT_ANO: span("", 7, 12).map(n => n + "º ano"),
+    GQ: ["1º ESBA", "2º ESBA", "3º ESBA", "4º ESBA", "1º Bachillerato", "2º Bachillerato"]
+  };
+
+  const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  // For each kind of organisation: what the box asks, and how the answer is labelled in the message.
+  const ORGS = {
+    "An NGO": { ask: "Name of the NGO", line: "Name of NGO" },
+    "A school": { ask: "Name of the school", line: "Name of school" },
+    "A funder": { ask: "Name of the funder", line: "Name of funder" }
+  };
+  const NOT_LISTED = "Not in this list";
+  const ELSEWHERE = "Somewhere else";
+  // What a student ticks. Someone who is 18 or older agrees for themselves.
+  const CONSENT_CHILD = "My parent or guardian agrees that I can join the waitlist and share these details.";
+  const CONSENT_ADULT = "I'm 18 or older, and I agree to share these details.";
+
+  const nameEl = $("#name"), emailEl = $("#email"), phoneEl = $("#phone");
+  const countrySel = $("#country"), areaSel = $("#area"), areaField = $("#areaField"), areaLabel = $("#areaLabel");
+  const areaOtherField = $("#areaOtherField"), areaOther = $("#areaOther"), areaOtherLabel = $("#areaOtherLabel");
+  const roleSel = $("#role"), orgField = $("#orgField"), orgEl = $("#org"), orgLabel = $("#orgLabel");
+  const studentFields = $("#studentFields"), dobDay = $("#dobDay"), dobMonth = $("#dobMonth"), dobYear = $("#dobYear");
+  const schoolEl = $("#school"), klassSel = $("#klass"), ideasEl = $("#ideas");
+  const consentRow = $("#consentRow"), consentEl = $("#consent"), consentText = $("#consentText");
+  const sendWa = $("#sendWa"), sendMail = $("#sendMail");
+  const status = $("#formStatus");
+  const result = $("#joinResult"), resultTitle = $("#resultTitle"), resultText = $("#resultText");
+  const msgText = $("#msgText");
+  const waLink = $("#waLink"), mailLink = $("#mailLink"), gmailLink = $("#gmailLink");
+  const copyStatus = $("#copyStatus");
+  const byName = (a, b) => a.localeCompare(b, "en", { sensitivity: "base" });
+
+  // Put a fresh list of choices in a dropdown. `first` is the line shown before anything is picked.
+  function fill(select, first, items, keep) {
+    const was = keep ? select.value : "";
+    select.textContent = "";
+    select.add(new Option(first, ""));
+    items.forEach(item => select.add(new Option(item, item)));
+    if (was && items.indexOf(was) !== -1) select.value = was;
+  }
+  const placeOf = () => PLACES.find(place => place[0] === countrySel.value);
+  const unitOf = () => { const place = placeOf(); return place ? place[1] : "State or region"; };
+
+  // The second dropdown lists the states (or counties, regions, provinces) of the country that was picked.
+  function showAreas() {
+    const place = placeOf();
+    const elsewhere = countrySel.value === ELSEWHERE;
+    areaField.hidden = elsewhere;
+    areaLabel.textContent = unitOf();
+    if (place) fill(areaSel, "Choose your " + place[1].toLowerCase(), place[3].split("|").sort(byName).concat(NOT_LISTED));
+    else fill(areaSel, "Choose a country first", []);
+    areaSel.disabled = !place;
+    areaOther.value = "";   // a place typed for one country must not follow you to another
+    showAreaOther();
+    showClasses();
+  }
+  function showAreaOther() {
+    const elsewhere = countrySel.value === ELSEWHERE;
+    areaOtherField.hidden = !(elsewhere || areaSel.value === NOT_LISTED);
+    areaOtherLabel.textContent = elsewhere ? "Your city and country" : "Type your " + unitOf().toLowerCase();
+  }
+  // The classes are named the way the picked country names them.
+  function showClasses() {
+    const place = placeOf();
+    const levels = place ? CLASSES[place[2]] : CLASSES.G7_12;
+    fill(klassSel, "Choose your class", ["Primary school"].concat(levels, "Finished secondary school", "Out of school"), true);
+  }
+
+  // The date of birth as [day, month (0 to 11), year], or null while it is unfinished or not a real date.
+  function birthday() {
+    const day = Number(dobDay.value), month = dobMonth.selectedIndex - 1, year = Number(dobYear.value);
+    if (!day || month < 0 || !year || new Date(year, month, day).getMonth() !== month) return null;
+    return [day, month, year];
+  }
+  function isAdult() {
+    const born = birthday();
+    if (!born) return false;
+    const now = new Date();
+    const hadBirthday = now.getMonth() > born[1] || (now.getMonth() === born[1] && now.getDate() >= born[0]);
+    return now.getFullYear() - born[2] - (hadBirthday ? 0 : 1) >= 18;
+  }
+  // A student ticks a box before sending. Under 18 it says a parent or guardian agrees; from 18 it is their own yes.
+  function showConsent() {
+    const wording = isAdult() ? CONSENT_ADULT : CONSENT_CHILD;
+    consentRow.hidden = roleSel.value !== "A student";
+    if (consentText.textContent !== wording) {
+      consentText.textContent = wording;
+      consentEl.checked = false;   // the sentence changed, so an old tick no longer counts
+    }
+  }
+  // Extra boxes appear for a student, and for an NGO, school or funder.
+  function showFollowUps() {
+    const org = ORGS[roleSel.value];
+    orgField.hidden = !org;
+    if (org) orgLabel.textContent = org.ask;
+    studentFields.hidden = roleSel.value !== "A student";
+    showConsent();
+  }
+  function setRole(value) {
+    if (value === "" && ORGS[roleSel.value]) return;   // "Partner with us" keeps an NGO, school or funder that is already picked
+    roleSel.value = value;
+    showFollowUps();
+  }
+
+  fill(countrySel, "Choose your country", PLACES.map(place => place[0]).sort(byName).concat(ELSEWHERE));
+  fill(dobDay, "Day", Array.from({ length: 31 }, (_, i) => String(i + 1)));
+  fill(dobMonth, "Month", MONTHS.map(month => month.slice(0, 3)));   // Jan, Feb, Mar: short enough for a narrow phone
+  const thisYear = new Date().getFullYear();
+  fill(dobYear, "Year", Array.from({ length: 25 }, (_, i) => String(thisYear - 8 - i)));
+  countrySel.addEventListener("change", showAreas);
+  areaSel.addEventListener("change", showAreaOther);
+  roleSel.addEventListener("change", showFollowUps);
+  [dobDay, dobMonth, dobYear].forEach(select => select.addEventListener("change", showConsent));
+  showAreas();
+  showFollowUps();
+
+  function fail(message, field) {
+    status.classList.add("is-error");
+    status.textContent = message;
+    field.focus();
+    return null;
+  }
+
+  // Read the form. Gives back the answers, or null after showing what is missing.
+  function readForm() {
+    const a = {
+      name: nameEl.value.trim(),
+      email: emailEl.value.trim(),
+      phone: phoneEl.value.trim(),
+      role: roleSel.value,
+      ideas: ideasEl.value.trim()
+    };
+    if (!a.name) return fail("Add your name.", nameEl);
+    if (!a.email && !a.phone) return fail("Add an email or a WhatsApp number so we can reach you.", emailEl);
+    if (a.email && !/^\S+@\S+\.\S+$/.test(a.email)) return fail("That email doesn't look right. Check it and try again.", emailEl);
+
+    const unit = unitOf().toLowerCase();
+    if (!countrySel.value) return fail("Choose your country.", countrySel);
+    if (countrySel.value === ELSEWHERE) {
+      a.location = areaOther.value.trim();
+      if (!a.location) return fail("Type your city and country.", areaOther);
+    } else if (areaSel.value === NOT_LISTED) {
+      if (!areaOther.value.trim()) return fail("Type your " + unit + ".", areaOther);
+      a.location = areaOther.value.trim() + ", " + countrySel.value;
+    } else {
+      if (!areaSel.value) return fail("Choose your " + unit + ".", areaSel);
+      a.location = areaSel.value + ", " + countrySel.value;
+    }
+
+    if (!a.role) return fail("Tell us who you are. Pick one under “I am”.", roleSel);
+    a.extra = [];   // the lines that only some people have
+    const org = ORGS[a.role];
+    if (org) {
+      const orgName = orgEl.value.trim();
+      if (!orgName) return fail("Add the " + org.ask.toLowerCase().replace("ngo", "NGO") + ".", orgEl);
+      a.extra.push(org.line + ": " + orgName);
+    }
+    if (a.role === "A student") {
+      if (!Number(dobDay.value)) return fail("Choose the day you were born.", dobDay);
+      if (dobMonth.selectedIndex < 1) return fail("Choose the month you were born.", dobMonth);
+      if (!Number(dobYear.value)) return fail("Choose the year you were born.", dobYear);
+      const born = birthday();
+      if (!born) return fail(MONTHS[dobMonth.selectedIndex - 1] + " doesn't have " + dobDay.value + " days. Check the day.", dobDay);
+      if (!klassSel.value) return fail("Choose your class.", klassSel);
+      const adult = isAdult();
+      if (!consentEl.checked) {
+        return fail(adult ? "Tick the box to say you agree to share these details." : "Ask your parent or guardian if you can join. Then tick the box.", consentEl);
+      }
+      a.extra.push("Date of birth: " + born[0] + " " + MONTHS[born[1]] + " " + born[2]);
+      if (schoolEl.value.trim()) a.extra.push("School: " + schoolEl.value.trim());
+      a.extra.push("Class: " + klassSel.value);
+      a.extra.push(adult ? "Consent: Yes, I am 18 or older" : "Parent or guardian consent: Yes");
+    }
+    return a;
+  }
+
+  function writeMessage(a) {
+    const lines = [
+      "Hi L8L team,",
+      "",
+      "You're onto amazing stuff, I'd love to follow this journey, please add me to the waitlist.",
+      "",
+      "Name: " + a.name,
+      a.email ? "Email: " + a.email : "WhatsApp: " + a.phone,
+      "Location: " + a.location,
+      "I am: " + a.role
+    ].concat(a.extra);
+    if (a.ideas) lines.push("", "What I'd like to see in L8L:", a.ideas);
+    return lines.join("\n") + "\n";
+  }
+
+  // What the page says once WhatsApp or the email app has been asked to open.
+  const AFTER = {
+    whatsapp: "WhatsApp should now be open with your message typed in. Tap send there and you're on the list.",
+    email: EMAIL_OPENED
+  };
+  // Gmail's website can open a ready message on a computer. On a phone it only shows the inbox,
+  // so the "Open in Gmail" button is for computers (anything with a mouse or trackpad).
+  gmailLink.hidden = !window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  // Tapping "Send on WhatsApp" or "Send by email" checks the form, puts the message into the link that was tapped,
+  // and lets the tap carry on, so WhatsApp or the email app opens straight away with the message in it.
+  // The visitor still presses send there. A web page cannot send a message by itself.
+  function send(event, route) {
+    const a = readForm();
+    if (!a) {
+      event.preventDefault();
+      return;
+    }
+    status.classList.remove("is-error");
+    status.textContent = "";
+    const body = writeMessage(a);
+    const subject = "L8L waitlist: " + a.name;
+    sendWa.href = waLink.href = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(body);
+    sendMail.href = mailLink.href = emailLink(subject, body);
+    gmailLink.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(CONTACT_EMAIL) +
+      "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    msgText.value = body;
+    playTap();
+    // Swap to the "tap send to finish" card a moment later, once the tap has gone on its way.
+    setTimeout(() => showAfter(route), 60);
+  }
+
+  function showAfter(route) {
+    resultText.textContent = AFTER[route];
+    copyStatus.textContent = "";
+    form.hidden = true;
+    result.hidden = false;
+    msgText.style.height = "auto";
+    msgText.style.height = (msgText.scrollHeight + 4) + "px";   // show the whole message, no scrolling inside the box
+    resultTitle.focus();
+  }
+
+  // a warning about a missing answer goes away as soon as the visitor starts fixing it
+  ["input", "change"].forEach(type => form.addEventListener(type, () => {
+    if (status.textContent) { status.classList.remove("is-error"); status.textContent = ""; }
+  }));
+  sendWa.addEventListener("click", event => send(event, "whatsapp"));
+  sendMail.addEventListener("click", event => send(event, "email"));
+  form.addEventListener("submit", event => event.preventDefault());   // the two buttons above do the sending
+  waLink.addEventListener("click", () => { resultText.textContent = AFTER.whatsapp; });
+  mailLink.addEventListener("click", () => { resultText.textContent = AFTER.email; });
+  $("#copyMsg").addEventListener("click", () => copyText(msgText.value, copyStatus, "Message copied. Paste it into WhatsApp or an email to us.", msgText));
+  $("#copyAddr").addEventListener("click", () => copyText(CONTACT_EMAIL, copyStatus, "Email address copied.", $(".addr", result)));
+  $("#editDetails").addEventListener("click", () => {
+    result.hidden = true;
+    form.hidden = false;
+    nameEl.focus();
+  });
+  $("#copyAddrFoot").addEventListener("click", () => copyText(CONTACT_EMAIL, $("#footStatus"), "Email address copied.", $(".footer-links .addr")));
+})();
+</script>
+</body>
+</html>
